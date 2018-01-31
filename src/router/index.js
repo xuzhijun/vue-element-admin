@@ -56,7 +56,7 @@ export const constantRouterMap = [
       path: 'detail',
       component: _import('project/detail'),
       name: 'projectDetail',
-      meta: { title: '项目名称', icon: 'project', noCache: true }
+      meta: { title: '项目名称' }
     }]
   }
 ]
