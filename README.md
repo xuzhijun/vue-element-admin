@@ -151,3 +151,24 @@ If you find this project useful, you can buy author a glass of juice :tropical_d
 [MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
 
 Copyright (c) 2017-present PanJiaChen
+
+## GIT 相关
+
+# 把某个分支下commit修改应用到当前分支
+	git checkout dev
+	git cherry-pick 38361a68
+# 切换分支
+	$ git checkout 分支名
+# 快进式合并
+	$ git checkout master  //合并到的分支名
+	$ git merge --no-ff 分支名
+# 删除某个分支
+	本地： $git branch -d [分支名]
+
+# 远程: git push origin : 要删除的分支名
+
+# 本地和远程分支的删除同步
+	git fetch origin --prune
+# 分支推送仓库
+	$ git push [仓库名] [分支名]
+	$ git push --set-upstream origin gitlearn-branch
