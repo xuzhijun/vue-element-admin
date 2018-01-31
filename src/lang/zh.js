@@ -1,6 +1,6 @@
 export default {
   route: {
-    dashboard: '首页',
+    dashboard: '我的工作台',
     introduction: '简述',
     documentation: '文档',
     permission: '权限测试页',
@@ -50,7 +50,7 @@ export default {
   },
   navbar: {
     logOut: '退出登录',
-    dashboard: '首页',
+    dashboard: '我的工作台',
     github: '项目地址',
     screenfull: '全屏',
     theme: '换肤'
