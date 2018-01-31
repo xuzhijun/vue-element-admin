@@ -10,8 +10,8 @@ Vue.use(Router)
 import Layout from '../views/layout/Layout'
 
 /** note: submenu only apppear when children.length>=1
-*   detail see  https://panjiachen.github.io/vue-element-admin-site/#/router-and-nav?id=sidebar
-**/
+ *   detail see  https://panjiachen.github.io/vue-element-admin-site/#/router-and-nav?id=sidebar
+ **/
 
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -29,35 +29,51 @@ import Layout from '../views/layout/Layout'
 **/
 export const constantRouterMap = [
   { path: '/login', component: _import('login/index'), hidden: true },
-  { path: '/authredirect', component: _import('login/authredirect'), hidden: true },
+  {
+    path: '/authredirect',
+    component: _import('login/authredirect'),
+    hidden: true
+  },
   { path: '/404', component: _import('errorPage/404'), hidden: true },
   { path: '/401', component: _import('errorPage/401'), hidden: true },
   {
-    path: '',
+    path: '/',
     component: Layout,
-    redirect: 'dashboard',
-    children: [{
-      path: 'dashboard',
-      component: _import('dashboard/index'),
-      name: 'dashboard',
-      meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
-    }]
+    redirect: '/dashboard',
+    meta: { title: 'dashboard', icon: 'dashboard' },
+    children: [
+      {
+        path: 'dashboard',
+        component: _import('dashboard/index'),
+        name: 'dashboard',
+        meta: { title: 'dashboard', icon: 'dashboard', noCache: true },
+        hidden: true
+      }
+    ]
   },
   {
     path: '/project',
     component: Layout,
     redirect: '/project/index',
-    children: [{
-      path: 'index',
-      component: _import('project/index'),
-      name: 'project',
-      meta: { title: '我的项目', icon: 'project', noCache: true }
-    }, {
-      path: 'detail',
-      component: _import('project/detail'),
-      name: 'projectDetail',
-      meta: { title: '项目名称' }
-    }]
+    meta: {
+      title: 'project',
+      icon: 'project'
+    },
+    children: [
+      {
+        path: 'index',
+        component: _import('project/index'),
+        name: 'project',
+        meta: { title: 'project', icon: 'project', noCache: true },
+        hidden: true
+      },
+      {
+        path: 'detail',
+        component: _import('project/detail'),
+        name: 'projectDetail',
+        meta: { title: 'projectDetail' }
+      }
+    ]
   }
 ]
 

@@ -46,7 +46,9 @@ export default {
     exportZip: 'Export Zip',
     theme: '换肤',
     clipboardDemo: 'Clipboard',
-    i18n: '国际化'
+    i18n: '国际化',
+    project: '我的项目',
+    projectDetail: '项目详情'
   },
   navbar: {
     logOut: '退出登录',

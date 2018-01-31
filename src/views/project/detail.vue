@@ -47,11 +47,11 @@
 </template>
 <script>
 export default {
-  name: "project",
+  name: 'project',
   data() {
-    return {};
+    return {}
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
