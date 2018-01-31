@@ -52,6 +52,11 @@ export const constantRouterMap = [
       component: _import('project/index'),
       name: 'project',
       meta: { title: '我的项目', icon: 'project', noCache: true }
+    }, {
+      path: 'detail',
+      component: _import('project/detail'),
+      name: 'projectDetail',
+      meta: { title: '项目名称', icon: 'project', noCache: true }
     }]
   }
 ]
