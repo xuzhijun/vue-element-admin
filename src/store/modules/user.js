@@ -13,7 +13,8 @@ const user = {
     roles: [],
     setting: {
       articlePlatform: []
-    }
+    },
+    department: ''
   },
 
   mutations: {
@@ -34,6 +35,9 @@ const user = {
     },
     SET_NAME: (state, name) => {
       state.name = name
+    },
+    SET_DEPARTMENT: (state, department) => {
+      state.department = department
     },
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar
@@ -69,6 +73,7 @@ const user = {
           const data = response.data
           commit('SET_ROLES', data.roles)
           commit('SET_NAME', data.name)
+          commit('SET_DEPARTMENT', data.department)
           commit('SET_AVATAR', data.avatar)
           commit('SET_INTRODUCTION', data.introduction)
           resolve(response)

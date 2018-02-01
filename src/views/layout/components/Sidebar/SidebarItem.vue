@@ -1,5 +1,5 @@
 <template>
-  <el-menu mode="vertical" :default-active="$route.path" :collapse="isCollapse" background-color="#304156" text-color="#bfcbd9" active-text-color="#409EFF">
+  <el-menu mode="vertical" :default-active="$route.path" :collapse="isCollapse" background-color="#333745" text-color="#bfcbd9" active-text-color="#409EFF">
   <div class="menu-wrapper">
     <template v-for="(item, index) in routes" v-if="!item.hidden">
       <router-link :to="item.redirect || item.path" :key="item.name">

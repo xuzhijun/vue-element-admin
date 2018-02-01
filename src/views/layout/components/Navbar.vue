@@ -1,10 +1,9 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-
     <!--<breadcrumb class="breadcrumb-container"></breadcrumb>-->
     <div class="navbar-el-menu">
-       <el-menu index="1" active-text-color="#fff">
+       <el-menu active-text-color="#fff">
         <router-link to="/">
           <el-menu-item index="1">
             {{$t('navbar.management')}}
