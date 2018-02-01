@@ -55,7 +55,11 @@ export default {
     dashboard: '我的工作台',
     github: '项目地址',
     screenfull: '全屏',
-    theme: '换肤'
+    theme: '换肤',
+    management: '项目管理',
+    version: '版本维护',
+    audit: '审计',
+    work: '部工当用'
   },
   login: {
     title: '系统登录',
