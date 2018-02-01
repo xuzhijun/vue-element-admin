@@ -49,9 +49,11 @@ export default {
   width: 100%;
   height: 100%;
   background-color: $menuBg;
+  border-bottom: 1px solid ;
   .scroll-wrapper {
     position: absolute;
-     width: 100%!important;
+    width: 100%!important;
+    border-bottom: 1px solid #2A2F32!important;
   }
 }
 </style>
