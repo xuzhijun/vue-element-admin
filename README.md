@@ -172,5 +172,3 @@ Copyright (c) 2017-present PanJiaChen
 # 分支推送仓库
 	$ git push [仓库名] [分支名]
 	$ git push --set-upstream origin gitlearn-branch
-
-  # tewr66546
