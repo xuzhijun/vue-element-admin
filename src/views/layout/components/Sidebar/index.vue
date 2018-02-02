@@ -4,7 +4,7 @@
       <el-col :span="24"><div class="scroll-bar-title">项目管理工具</div></el-col>
     </el-row>
     <user-item></user-item>
-    <sidebar-item :routes="permission_routers"></sidebar-item>
+    <sidebar-item :routes="sidebar_routers"></sidebar-item>
   </scroll-bar>
 </template>
 

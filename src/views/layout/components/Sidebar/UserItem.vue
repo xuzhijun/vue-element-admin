@@ -15,13 +15,14 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-   name: 'UserItem',
-   computed: mapGetters({
-    name: 'name',
-    department: 'department'
-   }),
-   methods: {
-  }
+  name: 'UserItem',
+  computed: {
+    ...mapGetters({
+      name: 'name',
+      department: 'department'
+    })
+  },
+  methods: {}
 }
 </script>
 <style lang="scss" scoped>

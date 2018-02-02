@@ -1,5 +1,5 @@
 <template>
-  <el-menu mode="vertical" :default-active="$route.path" background-color="#304156" text-color="#bfcbd9" active-text-color="#409EFF">
+  <el-menu mode="vertical" :default-active="$route.path" background-color="#333745" text-color="#fff" active-text-color="#fff">
     <template v-for="item in routes" v-if="!item.hidden">
         <el-menu-item :index="item.path" :key="item.path" style="padding:0;">
           <router-link :to="item.path">
