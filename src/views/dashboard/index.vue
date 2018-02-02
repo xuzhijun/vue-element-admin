@@ -1,6 +1,12 @@
 <template>
   <div class="dashboard-container">
-    <component :is="currentRole"></component>
+    <div class="mydesk-title">
+      <span class="title-ch">快捷入口</span>
+      <span class="title-en">Shortcut entrance</span>
+    </div>
+    <div class="shortcut-main">
+
+    </div>
   </div>
 </template>
 
@@ -29,3 +35,29 @@ export default {
   }
 }
 </script>
+<style rel="stylesheet/scss" lang="scss" scoped>
+.mydesk-title {
+  padding-left: 20px;
+  padding-top:24px;
+  padding-bottom: 20px;
+  .title-ch{
+    font-family:MicrosoftYaHei-Bold;
+    font-size: 16px;
+    font-weight:bolder;
+    line-height:26px;
+  }
+  .title-en{
+    font-family: MicrosoftYaHei;
+    font-size:14px;
+    line-height:26px;
+    color: #2A2A2A 100%;
+  }
+}
+.shortcut-main{
+  width:100%;
+  height:198px;
+  margin-left:20px;
+  background-color: white;
+
+}
+</style>

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import icons from './generateIconsView'
+//import icons from './generateIconsView'
 import clipboard from '@/utils/clipboard'
 
 export default {
@@ -32,9 +32,9 @@ export default {
     }
   },
   mounted() {
-    const iconsMap = icons.state.iconsMap.map((i) => {
-      return i.default.id.split('-')[1]
-    })
+    //const iconsMap = icons.state.iconsMap.map((i) => {
+    //  return i.default.id.split('-')[1]
+    //})
     this.iconsMap = iconsMap
   },
   methods: {
