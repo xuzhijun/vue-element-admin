@@ -59,7 +59,7 @@ export default {
     management: '项目管理',
     version: '版本维护',
     audit: '审计',
-    work: '部工当用'
+    work: '部门管理'
   },
   login: {
     title: '系统登录',

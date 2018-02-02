@@ -7,18 +7,18 @@
       </div>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
-          <svg-icon icon-class="user" />
+          <i class="el-icon-edit" />
         </span>
         <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="username" />
       </el-form-item>
 
       <el-form-item prop="password">
         <span class="svg-container">
-          <svg-icon icon-class="password" />
+          <i class="el-icon-edit" />
         </span>
         <el-input name="password" :type="passwordType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on" placeholder="password" />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon icon-class="eye" />
+          <i class="el-icon-view" />
         </span>
       </el-form-item>
 
@@ -33,27 +33,27 @@
         <span>{{$t('login.password')}} : {{$t('login.any')}}</span>
       </div>
 
-      <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{$t('login.thirdparty')}}</el-button>
+      <!-- <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{$t('login.thirdparty')}}</el-button> -->
     </el-form>
 
-    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog" append-to-body>
+    <!-- <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog" append-to-body>
       {{$t('login.thirdpartyTips')}}
       <br/>
       <br/>
       <br/>
       <social-sign />
-    </el-dialog>
+    </el-dialog> -->
 
   </div>
 </template>
 
 <script>
 import { isvalidUsername } from '@/utils/validate'
-import LangSelect from '@/components/LangSelect'
-import SocialSign from './socialsignin'
+// import LangSelect from '@/components/LangSelect'
+// import SocialSign from './socialsignin'
 
 export default {
-  components: { LangSelect, SocialSign },
+  // components: { LangSelect, SocialSign },
   name: 'login',
   data() {
     const validateUsername = (rule, value, callback) => {
