@@ -1,75 +1,36 @@
 <template>
   <div class="app-container project-container">
-    <el-row>
-      <el-col :span="14">
-        <div class="grid-title">项目经理</div>
-        <div class="grid-content"></div>
-      </el-col>
-      <el-col :span="10">
-        <div class="grid-title">项目成员</div>
-        <div class="grid-content"></div>
-      </el-col>
+    <el-row :gutter="15">
+      <content-box :span="14" title="项目经理" subTitle="我是子标题">我是内容</content-box>
+      <content-box :span="10" title="项目成员">我是内容</content-box>
     </el-row>
     <el-row>
-      <el-col :span="24">
-        <div class="grid-title">项目进度</div>
-        <div class="grid-content"></div>
-      </el-col>
+      <content-box title="项目进度">我是内容</content-box>
+    </el-row>
+    <el-row :gutter="15">
+      <content-box :span="12" title="本周工作">我是内容</content-box>
+      <content-box :span="12" title="下周计划">我是内容</content-box>
     </el-row>
     <el-row>
-      <el-col :span="14">
-        <div class="grid-title">本周工作</div>
-        <div class="grid-content"></div>
-      </el-col>
-      <el-col :span="10">
-        <div class="grid-title">下周计划</div>
-        <div class="grid-content"></div>
-      </el-col>
+      <content-box title="里程碑">我是内容</content-box>
     </el-row>
     <el-row>
-      <el-col :span="24">
-        <div class="grid-title">里程碑</div>
-        <div class="grid-content"></div>
-      </el-col>
+      <content-box title="问题与风险">我是内容</content-box>
     </el-row>
     <el-row>
-      <el-col :span="24">
-        <div class="grid-title">问题与风险</div>
-        <div class="grid-content"></div>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="24">
-        <div class="grid-content"></div>
-      </el-col>
+      <content-box>没有标题</content-box>
     </el-row>
   </div>
 </template>
 <script>
+import ContentBox from '@/components/ContentBox'
 export default {
   name: 'project',
   data() {
     return {}
+  },
+  components: {
+    ContentBox
   }
 }
 </script>
-
-<style rel="stylesheet/scss" lang="scss" scoped>
-.project-container {
-  margin: 50px;
-  .document-btn {
-    float: left;
-    margin-left: 50px;
-    vertical-align: middle;
-    display: block;
-    cursor: pointer;
-    background: black;
-    color: white;
-    height: 60px;
-    width: 200px;
-    line-height: 60px;
-    font-size: 20px;
-    text-align: center;
-  }
-}
-</style>

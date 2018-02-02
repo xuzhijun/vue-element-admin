@@ -65,14 +65,14 @@ export const sidebarRouterMap = [
     meta: { title: 'project', icon: 'project' },
     children: [
       {
-        path: 'index',
+        path: '/project/index',
         component: _import('project/index'),
         name: 'project',
         meta: { title: 'project', icon: 'project' },
         hidden: true
       },
       {
-        path: 'detail',
+        path: '/project/detail',
         component: _import('project/detail'),
         name: 'projectDetail',
         meta: { title: 'projectDetail' }
