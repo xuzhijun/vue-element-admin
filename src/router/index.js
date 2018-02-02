@@ -51,7 +51,7 @@ export const sidebarRouterMap = [
     children: [
       {
         path: 'dashboard',
-        component: _import('project/index'),
+        component: _import('dashboard/index'),
         name: 'dashboard',
         meta: { title: 'dashboard', icon: 'dashboard' },
         hidden: true
