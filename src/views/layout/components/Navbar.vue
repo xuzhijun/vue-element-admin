@@ -2,25 +2,7 @@
   <el-menu class="navbar" mode="horizontal">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
 
-    <!--<breadcrumb class="breadcrumb-container"></breadcrumb>-->
-    <div class="navbar-el-menu">
-       <el-menu index="1" active-text-color="#fff">
-        <router-link to="/">
-          <el-menu-item index="1">
-            {{$t('navbar.management')}}
-          </el-menu-item>
-        </router-link>
-        <el-menu-item index="2">
-          {{$t('navbar.version')}}
-        </el-menu-item>
-        <el-menu-item index="3">
-          {{$t('navbar.audit')}}
-        </el-menu-item>
-        <el-menu-item index="4">
-          {{$t('navbar.work')}}
-        </el-menu-item>
-      </el-menu>
-    </div>
+    <breadcrumb class="breadcrumb-container"></breadcrumb>
 
     <div class="right-menu">
       <error-log class="errLog-container right-menu-item"></error-log>
@@ -99,28 +81,10 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-@import "src/styles/variables.scss";
 .navbar {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
-  background-color: $menuBg;
-  .navbar-el-menu{
-    float: left;
-    .el-menu{
-      background-color: $menuBg;
-      border-right: none;
-      .el-menu-item {
-        height: 49px;
-        line-height: 49px;
-        font-size: 16px!important;
-        &:focus, &:hover{
-          background-color: transparent;
-          color: #fff;
-        }
-      }
-    }
-  }
   .hamburger-container {
     line-height: 58px;
     height: 50px;

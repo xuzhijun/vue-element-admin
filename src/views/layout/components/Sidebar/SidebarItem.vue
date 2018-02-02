@@ -1,16 +1,16 @@
 <template>
-  <el-menu mode="vertical" :default-active="$route.path" :collapse="isCollapse" background-color="#304156" text-color="#bfcbd9" active-text-color="#409EFF">
-  <div class="menu-wrapper">
-    <template v-for="(item, index) in routes" v-if="!item.hidden">
-      <router-link :to="item.redirect || item.path" :key="item.name">
-        <el-menu-item :index="item.redirect || item.path" :class="{'submenu-title-noDropdown':!isNest}">
-          <i v-if="item.meta&&item.meta.icon" :icon-class="item.meta.icon"></i>
-          <span v-if="item.meta&&item.meta.title">{{index + generateTitle(item.meta.title)}}</span>
+  <el-menu mode="vertical" :default-active="$route.path" background-color="#304156" text-color="#bfcbd9" active-text-color="#409EFF">
+    <template v-for="item in routes" v-if="!item.hidden">
+        <el-menu-item :index="item.path" :key="item.path" style="padding:0;">
+          <router-link :to="item.path">
+            <i v-if="item.meta&&item.meta.icon" :icon-class="item.meta.icon"></i>
+            <span v-if="item.meta&&item.meta.title">{{generateTitle(item.meta.title)}}</span>
+          </router-link>
         </el-menu-item>
-      </router-link>
-      <sidebar-item :key="item.path"  class="nest-menu" :routes="item.children"></sidebar-item>
+        <li class="sub-menu" :key="item.name">
+          <sidebar-item  class="nest-menu" :routes="item.children"></sidebar-item>
+        </li>
     </template>
-  </div>
   </el-menu>
 </template>
 
@@ -34,7 +34,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.el-menu.nest-menu {
-  padding-left: 20px;
+.el-menu-item {
+  > a {
+    padding: 0 20px;
+  }
+}
+// 重构二级菜单的样式
+.sub-menu {
+  a {
+    margin-left: 20px;
+  }
 }
 </style>

@@ -6,9 +6,6 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 
 Vue.use(Router)
 
-/* Layout */
-import Layout from '../views/layout/Layout'
-
 /** note: submenu only apppear when children.length>=1
  *   detail see  https://panjiachen.github.io/vue-element-admin-site/#/router-and-nav?id=sidebar
  **/
@@ -27,44 +24,51 @@ import Layout from '../views/layout/Layout'
     noCache: true                if fasle ,the page will no be cached(default is false)
   }
 **/
-export const constantRouterMap = [
-  { path: '/login', component: _import('login/index'), hidden: true },
+export const baseRouterMap = [
+  {
+    path: '/login',
+    component: _import('login/index')
+  },
   {
     path: '/authredirect',
-    component: _import('login/authredirect'),
-    hidden: true
+    component: _import('login/authredirect')
   },
-  { path: '/404', component: _import('errorPage/404'), hidden: true },
-  { path: '/401', component: _import('errorPage/401'), hidden: true },
+  {
+    path: '/404',
+    component: _import('errorPage/404')
+  },
+  {
+    path: '/401',
+    component: _import('errorPage/401')
+  }
+]
+export const sidebarRouterMap = [
   {
     path: '/',
-    component: Layout,
-    redirect: '/dashboard',
+    component: _import('layout/Layout'),
+    redirect: 'dashboard',
     meta: { title: 'dashboard', icon: 'dashboard' },
     children: [
       {
         path: 'dashboard',
-        component: _import('dashboard/index'),
+        component: _import('project/index'),
         name: 'dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true },
+        meta: { title: 'dashboard', icon: 'dashboard' },
         hidden: true
       }
     ]
   },
   {
     path: '/project',
-    component: Layout,
+    component: _import('layout/Layout'),
     redirect: '/project/index',
-    meta: {
-      title: 'project',
-      icon: 'project'
-    },
+    meta: { title: 'project', icon: 'project' },
     children: [
       {
         path: 'index',
         component: _import('project/index'),
         name: 'project',
-        meta: { title: 'project', icon: 'project', noCache: true },
+        meta: { title: 'project', icon: 'project' },
         hidden: true
       },
       {
@@ -76,12 +80,26 @@ export const constantRouterMap = [
     ]
   }
 ]
-
-export default new Router({
-  // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRouterMap
-})
+export const topbarRouterMap = [
+  {
+    path: '/manager',
+    component: _import('layout/Layout'),
+    redirect: '/manager/index',
+    meta: {
+      title: 'manager',
+      icon: 'manager'
+    },
+    children: [
+      {
+        path: 'index',
+        component: _import('manager/index'),
+        name: 'manager',
+        meta: { title: 'manager', icon: 'manager' },
+        hidden: true
+      }
+    ]
+  }
+]
 
 export const asyncRouterMap = [
   // {
@@ -265,6 +283,11 @@ export const asyncRouterMap = [
   //   component: Layout,
   //   children: [{ path: 'index', component: _import('i18n-demo/index'), name: 'i18n', meta: { title: 'i18n', icon: 'international' }}]
   // },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
+
+export default new Router({
+  // mode: 'history', // require service support
+  scrollBehavior: () => ({ y: 0 }),
+  routes: baseRouterMap
+})

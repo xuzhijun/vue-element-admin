@@ -1,8 +1,6 @@
 <template>
   <scroll-bar>
-    <el-menu mode="vertical" :default-active="$route.path" :collapse="isCollapse" background-color="#333745" text-color="#808ba2" active-text-color="#fff" cass="Sidebar-border">
-      <sidebar-item :routes="permission_routers"></sidebar-item>
-    </el-menu>
+      <sidebar-item :routes="sidebar_routers"></sidebar-item>
   </scroll-bar>
 </template>
 
@@ -15,17 +13,9 @@ export default {
   components: { SidebarItem, ScrollBar },
   computed: {
     ...mapGetters([
-      'permission_routers',
+      'sidebar_routers',
       'sidebar'
-    ]),
-    isCollapse() {
-      return !this.sidebar.opened
-    }
+    ])
   }
 }
 </script>
-<style rel="stylesheet/scss" lang="scss" scoped>
-  .Sidebar-border{
-    border: 1px solid #2A2F32;
-  }
-</style>

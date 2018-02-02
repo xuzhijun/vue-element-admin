@@ -1,5 +1,6 @@
-import { asyncRouterMap, constantRouterMap } from '@/router'
-
+import { baseRouterMap, sidebarRouterMap, topbarRouterMap } from '@/router'
+const R = require('ramda')
+console.log(sidebarRouterMap)
 /**
  * 通过meta.role判断是否与当前用户权限匹配
  * @param roles
@@ -33,13 +34,15 @@ function filterAsyncRouter(asyncRouterMap, roles) {
 
 const permission = {
   state: {
-    routers: constantRouterMap,
+    routers: baseRouterMap,
+    sidebarRouters: sidebarRouterMap,
+    topbarRouters: topbarRouterMap,
     addRouters: []
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
       state.addRouters = routers
-      state.routers = constantRouterMap.concat(routers)
+      state.routers = baseRouterMap.concat(routers)
     }
   },
   actions: {
@@ -48,9 +51,12 @@ const permission = {
         const { roles } = data
         let accessedRouters
         if (roles.indexOf('admin') >= 0) {
-          accessedRouters = asyncRouterMap
+          accessedRouters = R.concat(sidebarRouterMap, topbarRouterMap)
         } else {
-          accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+          accessedRouters = filterAsyncRouter(
+            R.concat(sidebarRouterMap, topbarRouterMap),
+            roles
+          )
         }
         commit('SET_ROUTERS', accessedRouters)
         resolve()
