@@ -7,6 +7,10 @@
     <div class="shortcut-main">
 
     </div>
+    <div class="mydesk-title">
+      <span class="title-ch">我的文件</span>
+      <span class="title-en">Shortcut entrance</span>
+    </div>
   </div>
 </template>
 
