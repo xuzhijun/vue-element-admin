@@ -1,11 +1,9 @@
 <template>
-  <scroll-bar>
-    <el-row>
-      <el-col :span="24"><div class="scroll-bar-title">项目管理工具</div></el-col>
-    </el-row>
-    <user-item></user-item>
+  <el-aside width="auto">
+    <div class="title">项目管理工具</div>
+    <user-card></user-card>
     <sidebar-item :routes="sidebar_routers"></sidebar-item>
-  </scroll-bar>
+  </el-aside>
 </template>
 
 <script>
@@ -15,35 +13,34 @@ import ScrollBar from '@/components/ScrollBar'
 import UserItem from './UserItem'
 
 export default {
-  components: { SidebarItem, ScrollBar, UserItem },
+  components: { SidebarItem, ScrollBar, 'user-card': UserItem },
   computed: {
-    ...mapGetters([
-      'sidebar_routers',
-      'sidebar'
-    ])
+    ...mapGetters(['sidebar_routers', 'sidebar'])
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "src/styles/variables.scss";
-  .scroll-bar-title{
-    font-size: 22px;
-    color: #CBCDD2;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
+@import 'src/styles/variables.scss';
+.title {
+  font-size: 22px;
+  color: #cbcdd2;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  overflow: hidden;
+}
+.el-aside {
+  .title, .user-card, .el-menu {
+    width: $fullSidebarWidth;
   }
-  .Sidebar-border{
-    border: 1px solid $borderBase;
+  &.mini {
+    .title, .user-card, .el-menu {
+      width: $miniSidebarWidth;
+    }
   }
-  .userItem{
-    color: #9B9B9B;
-    font-size: 14px;
-    line-height: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid $borderBase;
-    border-bottom: 1px solid $borderBase;
-  }
+}
+.Sidebar-border {
+  border: 1px solid $borderBase;
+}
 </style>

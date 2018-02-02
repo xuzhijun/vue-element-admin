@@ -34,7 +34,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.el-menu {
+  border-right: 0;
+}
 .el-menu-item {
+  font-size: 14px;
   > a {
     padding: 0 20px;
   }
