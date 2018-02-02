@@ -1,12 +1,11 @@
 <template>
-	<div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
-		<sidebar class="sidebar-container"></sidebar>
-		<div class="main-container">
-			<navbar></navbar>
-			<!-- <tags-view></tags-view> -->
-			<app-main></app-main>
-		</div>
-	</div>
+	<el-container>
+		<sidebar :class="{mini:!sidebar.opened}"></sidebar>
+    <el-container direction="vertical">
+      <navbar></navbar>
+      <app-main></app-main>
+    </el-container>
+	</el-container>
 </template>
 
 <script>
@@ -29,15 +28,11 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-	@import "src/styles/mixin.scss";
-	.app-wrapper {
-	  @include clearfix;
-	  position: relative;
-	  height: 100%;
-	  width: 100%;
-    .main-container{
-      height: 100%;
-      background-color: rgb(240, 242, 245);
-    }
-	}
+  @import "src/styles/variables.scss";
+  .el-container {
+    height: 100%;
+  }
+  .el-aside, .el-header {
+    background-color: $dark;
+  }
 </style>

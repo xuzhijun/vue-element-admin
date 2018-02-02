@@ -1,6 +1,6 @@
 import { baseRouterMap, sidebarRouterMap, topbarRouterMap } from '@/router'
 const R = require('ramda')
-console.log(sidebarRouterMap)
+// console.log(sidebarRouterMap)
 /**
  * 通过meta.role判断是否与当前用户权限匹配
  * @param roles
