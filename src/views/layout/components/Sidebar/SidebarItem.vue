@@ -3,7 +3,7 @@
     <template>
         <li v-if="!item.hidden || item.children" class="nav-item" v-for="item in routes" :key="item.path">
           <router-link v-if="!item.hidden" class="nav-link" :to="item.path" exact>
-            <i v-if="item.meta.icon" class="el-icon el-icon-edit" />
+            <i v-if="item.meta && item.meta.icon" class="el-icon el-icon-edit" />
             <!-- <i v-if="item.meta&&item.meta.icon" :icon-class="item.meta.icon"></i> -->
             <span v-if="item.meta && item.meta.title" class="nav-text">{{generateTitle(item.meta.title)}}</span>
           </router-link>
