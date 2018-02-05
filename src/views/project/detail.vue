@@ -1,5 +1,6 @@
 <template>
   <div class="app-container project-container">
+    <h1>{{$route.params.id}}</h1>
     <el-row :gutter="15">
       <content-box :span="14" title="项目经理" subTitle="我是子标题">我是内容</content-box>
       <content-box :span="10" title="项目成员">我是内容</content-box>
@@ -25,7 +26,6 @@
 <script>
 import ContentBox from '@/components/ContentBox'
 export default {
-  name: 'project',
   data() {
     return {}
   },

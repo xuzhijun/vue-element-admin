@@ -26,6 +26,13 @@ Vue.use(Router)
 **/
 export const baseRouterMap = [
   {
+    path: '/',
+    component: {
+      render: h => h('router-view')
+    },
+    redirect: '/dashboard'
+  },
+  {
     path: '/login',
     component: _import('login/index')
   },
@@ -44,38 +51,42 @@ export const baseRouterMap = [
 ]
 export const sidebarRouterMap = [
   {
-    path: '/',
-    component: _import('layout/Layout'),
-    redirect: 'dashboard',
-    meta: { title: 'dashboard', icon: 'dashboard' },
-    children: [
-      {
-        path: 'dashboard',
-        component: _import('dashboard/index'),
-        name: 'dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard' },
-        hidden: true
-      }
-    ]
+    path: '/dashboard',
+    component: _import('dashboard/index'),
+    meta: { title: 'dashboard', icon: 'dashboard' }
+  },
+  {
+    path: '/file',
+    component: _import('file/index'),
+    meta: { title: 'file', icon: 'file' }
   },
   {
     path: '/project',
-    component: _import('layout/Layout'),
+    component: {
+      render: h => h('router-view')
+    },
     redirect: '/project/index',
-    meta: { title: 'project', icon: 'project' },
+    hidden: true,
     children: [
       {
         path: '/project/index',
         component: _import('project/index'),
-        name: 'project',
-        meta: { title: 'project', icon: 'project' },
+        meta: { title: 'project', icon: 'project' }
+      },
+      {
+        path: '/project/:id',
+        component: _import('project/detail'),
         hidden: true
       },
       {
-        path: '/project/detail',
+        path: '/project/:id/member',
         component: _import('project/detail'),
-        name: 'projectDetail',
-        meta: { title: 'projectDetail' }
+        meta: { title: 'projectMember' }
+      },
+      {
+        path: '/project/:id/process',
+        component: _import('project/detail'),
+        meta: { title: 'projectProcess' }
       }
     ]
   }
@@ -83,7 +94,9 @@ export const sidebarRouterMap = [
 export const topbarRouterMap = [
   {
     path: '/manager',
-    component: _import('layout/Layout'),
+    component: {
+      render: h => h('router-view')
+    },
     redirect: '/manager/index',
     meta: {
       title: 'manager',

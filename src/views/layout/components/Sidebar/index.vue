@@ -31,11 +31,11 @@ export default {
   overflow: hidden;
 }
 .el-aside {
-  .title, .user-card, .el-menu {
+  .title, .user-card, .nav {
     width: $fullSidebarWidth;
   }
   &.mini {
-    .title, .user-card, .el-menu {
+    .title, .user-card, .nav {
       width: $miniSidebarWidth;
     }
   }

@@ -48,7 +48,10 @@ export default {
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
     project: '我的项目',
-    projectDetail: '项目详情'
+    projectDetail: '项目详情',
+    projectMember: '项目成员',
+    projectProcess: '项目进度',
+    file: '我的文件'
   },
   navbar: {
     logOut: '退出登录',
