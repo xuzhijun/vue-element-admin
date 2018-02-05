@@ -4,6 +4,7 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
+@import './icon.scss';
 
 body {
   height: 100%;
@@ -144,6 +145,17 @@ code {
 .text-center {
   text-align: center
 }
+
+.text-overflow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-right{
+  text-align: right
+}
+
 .sub-navbar {
   height: 50px;
   line-height: 50px;

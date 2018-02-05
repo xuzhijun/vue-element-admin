@@ -48,7 +48,10 @@ export default {
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
     project: '我的项目',
-    projectDetail: '项目详情'
+    projectDetail: '项目详情',
+    projectMember: '项目成员',
+    projectProcess: '项目进度',
+    file: '我的文件'
   },
   navbar: {
     logOut: '退出登录',
@@ -59,7 +62,7 @@ export default {
     management: '项目管理',
     version: '版本维护',
     audit: '审计',
-    work: '部工当用'
+    work: '部门管理'
   },
   login: {
     title: '系统登录',
