@@ -1,15 +1,16 @@
 <template>
   <el-col :span="24">
     <div class="el-tag-left">
-      <el-tag class="project-tag-name" size="small">
+      <el-tag class="project-tag-name" size="mini">
         <slot name="tagname"></slot>
       </el-tag>
     </div>
     <div class="el-tag-right" style="margin-left: 90px;">
       <template v-for="(item,index) in items">
-        <el-tag size="small" type="info" :key="item.id">
+        {{ type }}
+        <el-button size="mini" :key="item.id" :type="primary">
           <slot name="item"  :text="item.text"></slot>
-        </el-tag>
+        </el-button>
       </template>
     </div>
   </el-col>
@@ -22,7 +23,13 @@ export default {
     return {
     }
   },
-  props: ['items']
+  props: {
+    items: [
+    ],
+    type: {
+      type: String
+    }
+  }
 }
 </script>
 
