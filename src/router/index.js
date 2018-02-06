@@ -47,7 +47,6 @@ export const sidebarRouterMap = [
     path: '/',
     component: _import('layout/Layout'),
     redirect: '/dashboard',
-    hidden: true,
     children: [
       {
         path: '/dashboard',

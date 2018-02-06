@@ -1,15 +1,15 @@
 <template>
   <el-col :span="24">
     <div class="el-tag-left">
-      <el-tag class="project-tag-name" size="small">
+      <el-tag class="project-tag-name" size="mini">
         <slot name="tagname"></slot>
       </el-tag>
     </div>
     <div class="el-tag-right" style="margin-left: 90px;">
       <template v-for="(item,index) in items">
-        <el-tag size="small" type="info" :key="item.id">
+        <el-button size="mini" :key="item.id" :class="{'is-active':currentAddress==index}" @click="currentAddress=index" plain>
           <slot name="item"  :text="item.text"></slot>
-        </el-tag>
+        </el-button>
       </template>
     </div>
   </el-col>
@@ -20,9 +20,10 @@ export default {
   name: 'headtest',
   data() {
     return {
+      currentAddress: 0
     }
   },
-  props: ['items']
+  props: ['items', 'type']
 }
 </script>
 
