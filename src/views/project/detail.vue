@@ -49,17 +49,35 @@
         <div class="milestone">
           <div class="stone-item">
             <div class="stone-name"><span>项目启动</span></div>
-            <i class="stone-point"></i>
+            <i class="icon-point"></i>
             <div class="stone-date">2018/1/1</div>
           </div>
           <div class="stone-item">
             <div class="stone-name"><span>项目开发项目开发项目开发项目开发项目开发项目开发</span></div>
-            <i class="stone-point"></i>
+              <svg class="icon-triangle" width="29px" height="26px" viewBox="0 0 29 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <path d="M12.7111456,19.4222912 L4,2 L25,2 L16.2888544,19.4222912 C15.7948759,20.4102482 14.5935298,20.8106969 13.6055728,20.3167184 C13.218518,20.123191 12.904673,19.809346 12.7111456,19.4222912 Z" id="path-1"></path>
+                  <filter x="-33.3%" y="-27.0%" width="166.7%" height="175.6%" filterUnits="objectBoundingBox" id="filter-2">
+                      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+                      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.263700181 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+                  </filter>
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Combined-Shape">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#F0F0F0" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <path stroke="#E8E8E8" stroke-width="1" d="M24.190983,2.5 L4.80901699,2.5 L13.1583592,19.1986844 C13.3035048,19.4889755 13.5388885,19.7243593 13.8291796,19.8695048 C14.5701474,20.2399887 15.4711569,19.9396522 15.8416408,19.1986844 L24.190983,2.5 Z"></path>
+                    </g>
+                </g>
+              </svg>
+            <i class="icon-point"></i>
             <div class="stone-date">2018/1/2</div>
           </div>
           <div class="stone-item">
             <div class="stone-name"><span>项目上线</span></div>
-            <i class="stone-point"></i>
+            <i class="icon-point"></i>
             <div class="stone-date">2018/1/2</div>
           </div>
         </div>
@@ -241,7 +259,7 @@ export default {
   flex: 0 0 auto;
   .stone-item {
     margin-bottom: 40px;
-    padding: 0 20px 40px;
+    padding: 0 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -258,11 +276,14 @@ export default {
     background-color: #f0f0f0;
     border: 1px solid #e8e8e8;
     border-radius: 4px;
-    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.26) 0 2px 4px 0;
   }
-  .stone-point {
+  .icon-triangle {
+    margin-top: -2px;
+  }
+  .icon-point {
     display: block;
-    background-color: rgba(136,136,136,.92);
+    background-color: rgba(136, 136, 136, 0.92);
     width: 22px;
     height: 22px;
     font-size: 0;
