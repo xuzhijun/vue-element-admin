@@ -26,13 +26,6 @@ Vue.use(Router)
 **/
 export const baseRouterMap = [
   {
-    path: '/',
-    component: {
-      render: h => h('router-view')
-    },
-    redirect: '/dashboard'
-  },
-  {
     path: '/login',
     component: _import('login/index')
   },
@@ -51,42 +44,50 @@ export const baseRouterMap = [
 ]
 export const sidebarRouterMap = [
   {
-    path: '/dashboard',
-    component: _import('dashboard/index'),
-    meta: { title: 'dashboard', icon: 'dashboard' }
-  },
-  {
-    path: '/file',
-    component: _import('file/index'),
-    meta: { title: 'file', icon: 'file' }
-  },
-  {
-    path: '/project',
-    component: {
-      render: h => h('router-view')
-    },
-    redirect: '/project/index',
+    path: '/',
+    component: _import('layout/Layout'),
+    redirect: '/dashboard',
     hidden: true,
     children: [
       {
-        path: '/project/index',
-        component: _import('project/index'),
-        meta: { title: 'project', icon: 'project' }
+        path: '/dashboard',
+        component: _import('dashboard/index'),
+        meta: { title: 'dashboard', icon: 'dashboard' }
       },
       {
-        path: '/project/:id',
-        component: _import('project/detail'),
-        hidden: true
+        path: '/file',
+        component: _import('file/index'),
+        meta: { title: 'file', icon: 'file' }
       },
       {
-        path: '/project/:id/member',
-        component: _import('project/detail'),
-        meta: { title: 'projectMember' }
-      },
-      {
-        path: '/project/:id/process',
-        component: _import('project/detail'),
-        meta: { title: 'projectProcess' }
+        path: '/project',
+        component: {
+          render: h => h('router-view')
+        },
+        redirect: '/project/index',
+        hidden: true,
+        children: [
+          {
+            path: '/project/index',
+            component: _import('project/index'),
+            meta: { title: 'project', icon: 'project' }
+          },
+          {
+            path: '/project/:id',
+            component: _import('project/detail'),
+            hidden: true
+          },
+          {
+            path: '/project/:id/member',
+            component: _import('project/detail'),
+            meta: { title: 'projectMember' }
+          },
+          {
+            path: '/project/:id/process',
+            component: _import('project/detail'),
+            meta: { title: 'projectProcess' }
+          }
+        ]
       }
     ]
   }
