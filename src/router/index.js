@@ -5,7 +5,7 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 // detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
 
 Vue.use(Router)
-import Layout from '@/view/Layout/layout'
+import Layout from '@/views/layout/Layout'
 /** note: submenu only apppear when children.length>=1
  *   detail see  https://panjiachen.github.io/vue-element-admin-site/#/router-and-nav?id=sidebar
  **/

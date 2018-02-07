@@ -74,6 +74,7 @@ export default {
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.19) 0 2px 4px 0;
   background-color: #fff;
+  max-width: 100%;
   .box-header {
     display: flex;
     align-items: center;
