@@ -83,7 +83,6 @@ import ContentBox from '@/components/ContentBox'
 import Milestone from '@/components/Milestone'
 import Operation from '@/components/Operation'
 import Highcharts from 'highcharts'
-import { test } from '@/api/test'
 require('highcharts/highcharts-3d')(Highcharts)
 
 export default {
@@ -205,11 +204,6 @@ export default {
     ContentBox,
     Milestone,
     Operation
-  },
-  created() {
-    test().then(data => {
-      console.log(data)
-    })
   },
   mounted() {
     Highcharts.chart('chart-pie', this.optionsPie)

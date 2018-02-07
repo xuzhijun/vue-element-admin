@@ -13,8 +13,8 @@ export function loginByUsername(username) {
 
 export function logout() {
   return request({
-    url: '/login/logout',
-    method: 'post'
+    url: '/api/logout',
+    method: 'get'
   })
 }
 
