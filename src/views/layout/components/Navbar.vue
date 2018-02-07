@@ -60,7 +60,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
-import LangSelect from '@/components/LangSelect'
+// import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker'
 
 export default {
@@ -69,7 +69,7 @@ export default {
     Hamburger,
     ErrorLog,
     Screenfull,
-    LangSelect,
+    // LangSelect,
     ThemePicker
   },
   computed: {

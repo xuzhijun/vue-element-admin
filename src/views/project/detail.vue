@@ -4,23 +4,37 @@
     <el-row type="flex" :gutter="15">
       <content-box :span="14" title="项目经理" subTitle="我是子标题" :tools="{'edit': true}">
         <section class="project-info">
-            <div class="info-item"><span>项目经理：</span>张XX</div>
-            <div class="info-item"><span>创建于：</span>xxxx年xx月</div>
-            <div class="info-item"><span>项目类型：</span>研发项目</div>
-            <div class="info-item"><span>可见范围：</span>所有人可见</div>
-            <div class="info-item"><span>上级项目：</span>研发项目</div>
-            <div class="info-item"><span>所属项目集：</span>研发项目</div>
+          <div class="info-item">
+            <span>项目经理：</span>张XX</div>
+          <div class="info-item">
+            <span>创建于：</span>xxxx年xx月</div>
+          <div class="info-item">
+            <span>项目类型：</span>研发项目</div>
+          <div class="info-item">
+            <span>可见范围：</span>所有人可见</div>
+          <div class="info-item">
+            <span>上级项目：</span>研发项目</div>
+          <div class="info-item">
+            <span>所属项目集：</span>研发项目</div>
         </section>
         <section class="project-brief article">
-              <div class="title">项目背景：</div>
-              <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
+          <div class="title">项目背景：</div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
         </section>
       </content-box>
       <content-box :span="10" title="项目成员">
         <div class="chart-con">
-        <div id="chart-pie"></div>
-        <div id="chart-column"></div>
+          <div id="chart-pie"></div>
+          <div id="chart-column"></div>
         </div>
+        <el-table :show-header="false" :data="tableData" style="width: 100%">
+          <el-table-column prop="name" label="姓名">
+          </el-table-column>
+          <el-table-column prop="job" label="职位">
+          </el-table-column>
+          <el-table-column prop="dep" label="部门">
+          </el-table-column>
+        </el-table>
       </content-box>
     </el-row>
     <el-row type="flex">
@@ -46,66 +60,30 @@
     </el-row>
     <el-row type="flex">
       <content-box title="里程碑">
-        <div class="milestone">
-          <div class="stone-item">
-            <div class="stone-name"><span>项目启动</span></div>
-            <i class="icon-point"></i>
-            <div class="stone-date">2018/1/1</div>
-          </div>
-          <div class="stone-item">
-            <div class="stone-name"><span>项目开发项目开发项目开发项目开发项目开发项目开发</span></div>
-              <svg class="icon-triangle" width="29px" height="26px" viewBox="0 0 29 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs>
-                  <path d="M12.7111456,19.4222912 L4,2 L25,2 L16.2888544,19.4222912 C15.7948759,20.4102482 14.5935298,20.8106969 13.6055728,20.3167184 C13.218518,20.123191 12.904673,19.809346 12.7111456,19.4222912 Z" id="path-1"></path>
-                  <filter x="-33.3%" y="-27.0%" width="166.7%" height="175.6%" filterUnits="objectBoundingBox" id="filter-2">
-                      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-                      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-                      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
-                      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.263700181 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-                  </filter>
-                </defs>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g id="Combined-Shape">
-                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                        <use fill="#F0F0F0" fill-rule="evenodd" xlink:href="#path-1"></use>
-                        <path stroke="#E8E8E8" stroke-width="1" d="M24.190983,2.5 L4.80901699,2.5 L13.1583592,19.1986844 C13.3035048,19.4889755 13.5388885,19.7243593 13.8291796,19.8695048 C14.5701474,20.2399887 15.4711569,19.9396522 15.8416408,19.1986844 L24.190983,2.5 Z"></path>
-                    </g>
-                </g>
-              </svg>
-            <i class="icon-point"></i>
-            <div class="stone-date">2018/1/2</div>
-          </div>
-          <div class="stone-item">
-            <div class="stone-name"><span>项目上线</span></div>
-            <i class="icon-point"></i>
-            <div class="stone-date">2018/1/2</div>
-          </div>
-        </div>
+        <milestone :stones="stones"></milestone>
       </content-box>
     </el-row>
     <el-row type="flex">
       <content-box title="问题与风险">
         <section class="article">
-              <div class="title">项目背景：</div>
-              <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
+          <div class="title">项目背景：</div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
         </section>
       </content-box>
     </el-row>
     <el-row type="flex">
       <content-box>
-          <div class="operation-item" :key="n" v-for="n in 6">
-            <el-tag>里程碑</el-tag>
-            <span class="item-user">管理员</span>
-            <span class="item-content">新建了里程碑：管理工具</span>
-            <span class="item-date">23小时前</span>
-            </div>
+        <operation :list="operations"></operation>
       </content-box>
     </el-row>
   </div>
 </template>
 <script>
 import ContentBox from '@/components/ContentBox'
+import Milestone from '@/components/Milestone'
+import Operation from '@/components/Operation'
 import Highcharts from 'highcharts'
+import { test } from '@/api/test'
 require('highcharts/highcharts-3d')(Highcharts)
 
 export default {
@@ -196,15 +174,96 @@ export default {
             data: [29.9, 71.5]
           }
         ]
-      }
+      },
+      stones: [],
+      operations: [],
+      tableData: [
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        }
+      ]
     }
   },
   components: {
-    ContentBox
+    ContentBox,
+    Milestone,
+    Operation
+  },
+  created() {
+    test().then(data => {
+      console.log(data)
+    })
   },
   mounted() {
     Highcharts.chart('chart-pie', this.optionsPie)
     Highcharts.chart('chart-column', this.optionsColumn)
+    this.stones = [
+      { id: 1, name: '项目原型', date: '2017/11/01' },
+      { id: 2, name: '项目设计', date: '2017/12/01' },
+      { id: 3, name: '项目启动', date: '2018/01/01', type: 'primary' },
+      { id: 4, name: '项目开发', date: '2018/02/01' },
+      { id: 5, name: '项目测试', date: '2018/03/01' },
+      { id: 6, name: '项目上线', date: '2018/04/01' }
+    ]
+    this.operations = [
+      {
+        id: 1,
+        type: 'success',
+        tag: '标签一',
+        user: '管理员',
+        content: '发布任务',
+        date: '25小时前'
+      },
+      {
+        id: 2,
+        type: 'success',
+        tag: '标签一',
+        user: '管理员',
+        content: '发布任务',
+        date: '25小时前'
+      },
+      {
+        id: 3,
+        type: 'success',
+        tag: '标签一',
+        user: '管理员',
+        content: '发布任务',
+        date: '25小时前'
+      },
+      {
+        id: 4,
+        type: 'success',
+        tag: '标签一',
+        user: '管理员',
+        content: '发布任务',
+        date: '25小时前'
+      },
+      {
+        id: 5,
+        type: 'success',
+        tag: '标签一',
+        user: '管理员',
+        content: '发布任务',
+        date: '25小时前'
+      }
+    ]
   }
 }
 </script>
@@ -243,59 +302,6 @@ export default {
   > div {
     width: 50%;
     flex: 1 1 auto;
-  }
-}
-.operation-item {
-  padding: 10px 0;
-  span {
-    padding-left: 10px;
-    &.item-date {
-      color: #999;
-    }
-  }
-}
-.milestone {
-  display: flex;
-  flex: 0 0 auto;
-  .stone-item {
-    margin-bottom: 40px;
-    padding: 0 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    border-bottom: 1px solid #cecece;
-  }
-  .stone-name {
-    padding: 10px;
-    width: 140px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
-    border: 1px solid #e8e8e8;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.26) 0 2px 4px 0;
-  }
-  .icon-triangle {
-    margin-top: -2px;
-  }
-  .icon-point {
-    display: block;
-    background-color: rgba(136, 136, 136, 0.92);
-    width: 22px;
-    height: 22px;
-    font-size: 0;
-    line-height: 0;
-    border: 4px solid #d8d8d8;
-    border-radius: 14px;
-    position: absolute;
-    bottom: -11px;
-  }
-  .stone-date {
-    position: absolute;
-    bottom: -40px;
   }
 }
 </style>
