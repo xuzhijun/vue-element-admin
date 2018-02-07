@@ -6,22 +6,22 @@ export function loginByUsername(username, password) {
     password
   }
   return request({
-    url: '/login/login',
-    method: 'post',
+    url: '/api/login',
+    method: 'get',
     data
   })
 }
 
 export function logout() {
   return request({
-    url: '/login/logout',
+    url: '/api/logout',
     method: 'post'
   })
 }
 
 export function getUserInfo(token) {
   return request({
-    url: '/user/info',
+    url: '/api/userInfo',
     method: 'get',
     params: { token }
   })

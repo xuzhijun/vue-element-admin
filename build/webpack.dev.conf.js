@@ -1,6 +1,7 @@
 'use strict'
 const path = require('path')
 const utils = require('./utils')
+const express = require('express')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
@@ -8,6 +9,7 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const proxyMiddleware = require('http-proxy-middleware')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -59,6 +61,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       path: config.dev.assetsPublicPath + config.dev.assetsSubDirectory
     }),
   ]
+})
+
+const app = express()
+// proxy api requests
+Object.keys(devWebpackConfig.devServer.proxy).forEach(function (context) {
+  var options = devWebpackConfig.devServer.proxy[context]
+  if (typeof options === 'string') {
+    options = { target: options }
+  }
+  app.use(proxyMiddleware(options.filter || context, options))
 })
 
 module.exports = new Promise((resolve, reject) => {

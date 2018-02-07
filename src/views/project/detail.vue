@@ -27,6 +27,14 @@
           <div id="chart-pie"></div>
           <div id="chart-column"></div>
         </div>
+        <el-table :show-header="false" :data="tableData" style="width: 100%">
+          <el-table-column prop="name" label="姓名">
+          </el-table-column>
+          <el-table-column prop="job" label="职位">
+          </el-table-column>
+          <el-table-column prop="dep" label="部门">
+          </el-table-column>
+        </el-table>
       </content-box>
     </el-row>
     <el-row type="flex">
@@ -75,6 +83,7 @@ import ContentBox from '@/components/ContentBox'
 import Milestone from '@/components/Milestone'
 import Operation from '@/components/Operation'
 import Highcharts from 'highcharts'
+import { test } from '@/api/test'
 require('highcharts/highcharts-3d')(Highcharts)
 
 export default {
@@ -167,13 +176,40 @@ export default {
         ]
       },
       stones: [],
-      operations: []
+      operations: [],
+      tableData: [
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        }
+      ]
     }
   },
   components: {
     ContentBox,
     Milestone,
     Operation
+  },
+  created() {
+    test().then(data => {
+      console.log(data)
+    })
   },
   mounted() {
     Highcharts.chart('chart-pie', this.optionsPie)
