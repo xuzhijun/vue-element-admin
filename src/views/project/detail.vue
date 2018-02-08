@@ -19,10 +19,7 @@
         </section>
         <section class="project-brief article">
           <div class="title">项目背景：</div>
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit
-            amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et
-            magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus
-            mollis orci, sed rhoncus sapien nunc eget.</div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
         </section>
       </content-box>
       <content-box :span="10" title="项目成员">
@@ -72,10 +69,7 @@
       <content-box title="问题与风险">
         <section class="article">
           <div class="title">项目背景：</div>
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit
-            amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et
-            magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus
-            mollis orci, sed rhoncus sapien nunc eget.</div>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
         </section>
       </content-box>
     </el-row>
@@ -87,276 +81,114 @@
   </div>
 </template>
 <script>
-  import ContentBox from '@/components/ContentBox'
-  import Milestone from '@/components/Milestone'
-  import Operation from '@/components/Operation'
-  import ProgressTable from '@/components/ProgressTable'
-  import Highcharts from 'highcharts'
-  const R = require('ramda')
-  require('highcharts/highcharts-3d')(Highcharts)
+import ContentBox from '@/components/ContentBox'
+import Milestone from '@/components/Milestone'
+import Operation from '@/components/Operation'
+import ProgressTable from '@/components/ProgressTable'
+import Highcharts from 'highcharts'
+const R = require('ramda')
+require('highcharts/highcharts-3d')(Highcharts)
 
-  export default {
-    data() {
-      return {
-        optionsPie: {
-          chart: {
-            type: 'pie',
-            width: null,
-            height: 200,
-            options3d: {
-              enabled: true,
-              alpha: 45,
-              beta: 0
-            }
-          },
-          title: {
-            text: null
-          },
-          credits: {
-            enabled: false
-          },
-          legend: {
-            enabled: false
-          },
-          tooltip: {
-            enabled: false
-          },
-          plotOptions: {
-            pie: {
-              allowPointSelect: true,
-              cursor: 'pointer',
-              depth: 10,
-              colors: ['#0f94e4', '#f2f0f0'],
-              dataLabels: {
-                connectorWidth: 0,
-                format: '{point.percentage:.1f} %',
-                distance: -10,
-                filter: {
-                  property: 'percentage',
-                  operator: '>',
-                  value: 4
-                }
+export default {
+  data() {
+    return {
+      optionsPie: {
+        chart: {
+          type: 'pie',
+          width: null,
+          height: 200,
+          options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+          }
+        },
+        title: {
+          text: null
+        },
+        credits: {
+          enabled: false
+        },
+        legend: {
+          enabled: false
+        },
+        tooltip: {
+          enabled: false
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 10,
+            colors: ['#0f94e4', '#f2f0f0'],
+            dataLabels: {
+              connectorWidth: 0,
+              format: '{point.percentage:.1f} %',
+              distance: -10,
+              filter: {
+                property: 'percentage',
+                operator: '>',
+                value: 4
               }
             }
-          },
-          series: [{
+          }
+        },
+        series: [
+          {
             type: 'pie',
             name: 'Browser share',
-            data: [{
-              name: '所内人员',
-              y: 2
-            }, {
-              name: '合作人员',
-              y: 4
-            }]
-          }]
+            data: [
+              {
+                name: '所内人员',
+                y: 2
+              },
+              {
+                name: '合作人员',
+                y: 4
+              }
+            ]
+          }
+        ]
+      },
+      optionsColumn: {
+        chart: {
+          type: 'column',
+          width: null,
+          height: 200,
+          options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            depth: 50,
+            viewDistance: 25
+          }
         },
-        optionsColumn: {
-          chart: {
-            type: 'column',
-            width: null,
-            height: 200,
-            options3d: {
-              enabled: true,
-              alpha: 15,
-              beta: 15,
-              depth: 50,
-              viewDistance: 25
-            }
-          },
-          title: {
-            text: null
-          },
-          credits: {
-            enabled: false
-          },
-          legend: {
-            enabled: false
-          },
-          tooltip: {
-            enabled: false
-          },
-          plotOptions: {
-            column: {
-              depth: 25
-            }
-          },
-          series: [{
+        title: {
+          text: null
+        },
+        credits: {
+          enabled: false
+        },
+        legend: {
+          enabled: false
+        },
+        tooltip: {
+          enabled: false
+        },
+        plotOptions: {
+          column: {
+            depth: 25
+          }
+        },
+        series: [
+          {
             name: '图例1',
             data: [29.9, 71.5]
-          }]
-        },
-        stones: [],
-        operations: [],
-        tableData: [{
-            name: '王小虎',
-            job: '项目经理',
-            dep: '前端开发部'
-          },
-          {
-            name: '王小虎',
-            job: '项目经理',
-            dep: '前端开发部'
-          },
-          {
-            name: '王小虎',
-            job: '项目经理',
-            dep: '前端开发部'
-          },
-          {
-            name: '王小虎',
-            job: '项目经理',
-            dep: '前端开发部'
-          }
-        ],
-        progressData: [{
-            id: '1',
-            project: '项目一',
-            task: '任务一',
-            m01: 1,
-            m02: 1,
-            m03: 1,
-            m04: 0,
-            m05: 0,
-            m06: 0,
-            m07: 0,
-            m08: 0,
-            m09: 0,
-            m10: 0,
-            m11: 0,
-            m12: 0
-          },
-          {
-            id: '2',
-            project: '项目一',
-            task: '任务二',
-            m01: 0,
-            m02: 0,
-            m03: 0,
-            m04: 1,
-            m05: 1,
-            m06: 1,
-            m07: 0,
-            m08: 0,
-            m09: 0,
-            m10: 0,
-            m11: 0,
-            m12: 0
-          },
-          {
-            id: '3',
-            project: '项目二',
-            task: '任务一',
-            m01: 0,
-            m02: 0,
-            m03: 0,
-            m04: 0,
-            m05: 1,
-            m06: 1,
-            m07: 1,
-            m08: 1,
-            m09: 0,
-            m10: 0,
-            m11: 0,
-            m12: 0
-          },
-          {
-            id: '4',
-            project: '项目二',
-            task: '任务二',
-            m01: 1,
-            m02: 1,
-            m03: 1,
-            m04: 1,
-            m05: 1,
-            m06: 0,
-            m07: 0,
-            m08: 0,
-            m09: 0,
-            m10: 0,
-            m11: 0,
-            m12: 0
-          },
-          {
-            id: '5',
-            project: '项目二',
-            task: '任务三',
-            m01: 0,
-            m02: 1,
-            m03: 1,
-            m04: 1,
-            m05: 1,
-            m06: 0,
-            m07: 0,
-            m08: 0,
-            m09: 0,
-            m10: 0,
-            m11: 0,
-            m12: 0
           }
         ]
-      }
-    },
-    components: {
-      ContentBox,
-      Milestone,
-      Operation,
-      ProgressTable
-    },
-    methods: {
-      spanMethod() {
-        // 需要拿到项目起始行，和任务长度
-        const projectSpan = [
-          {
-            start: 0,
-            len: 2
-          },
-          {
-            start: 2,
-            len: 3
-          }
-        ]
-        return function ({
-          row,
-          column,
-          rowIndex,
-          columnIndex
-        }) {
-          if (columnIndex === 0) {
-            // 合并项目行
-            const rowObject = R.find(R.propEq('start', rowIndex))(projectSpan)
-            if (rowObject) {
-              return {
-                rowspan: rowObject.len,
-                colspan: 1
-              }
-            } else {
-              return {
-                rowspan: 0,
-                colspan: 0
-              }
-            }
-          } else if (columnIndex > 1) {
-            if (columnIndex % 2 === 0) {
-              return {
-                rowspan: 1,
-                colspan: 2
-              }
-            } else {
-              return {
-                rowspan: 0,
-                colspan: 0
-              }
-            }
-            // 合并任务列
-          }
-        }
-      }
-    },
-    mounted() {
-      Highcharts.chart('chart-pie', this.optionsPie)
-      Highcharts.chart('chart-column', this.optionsColumn)
-      this.stones = [{
+      },
+      stones: [
+        {
           id: 1,
           name: '项目原型',
           date: '2017/11/01'
@@ -387,8 +219,9 @@
           name: '项目上线',
           date: '2018/04/01'
         }
-      ]
-      this.operations = [{
+      ],
+      operations: [
+        {
           id: 1,
           type: 'success',
           tag: '标签一',
@@ -428,51 +261,214 @@
           content: '发布任务',
           date: '25小时前'
         }
+      ],
+      tableData: [
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        },
+        {
+          name: '王小虎',
+          job: '项目经理',
+          dep: '前端开发部'
+        }
+      ],
+      progressData: [
+        {
+          id: '1',
+          project: '项目一',
+          task: '任务一',
+          m01: 1,
+          m02: 1,
+          m03: 1,
+          m04: 0,
+          m05: 0,
+          m06: 0,
+          m07: 0,
+          m08: 0,
+          m09: 0,
+          m10: 0,
+          m11: 0,
+          m12: 0
+        },
+        {
+          id: '2',
+          project: '项目一',
+          task: '任务二',
+          m01: 0,
+          m02: 0,
+          m03: 0,
+          m04: 1,
+          m05: 1,
+          m06: 1,
+          m07: 0,
+          m08: 0,
+          m09: 0,
+          m10: 0,
+          m11: 0,
+          m12: 0
+        },
+        {
+          id: '3',
+          project: '项目二',
+          task: '任务一',
+          m01: 0,
+          m02: 0,
+          m03: 0,
+          m04: 0,
+          m05: 1,
+          m06: 1,
+          m07: 1,
+          m08: 1,
+          m09: 0,
+          m10: 0,
+          m11: 0,
+          m12: 0
+        },
+        {
+          id: '4',
+          project: '项目二',
+          task: '任务二',
+          m01: 1,
+          m02: 1,
+          m03: 1,
+          m04: 1,
+          m05: 1,
+          m06: 0,
+          m07: 0,
+          m08: 0,
+          m09: 0,
+          m10: 0,
+          m11: 0,
+          m12: 0
+        },
+        {
+          id: '5',
+          project: '项目二',
+          task: '任务三',
+          m01: 0,
+          m02: 1,
+          m03: 1,
+          m04: 1,
+          m05: 1,
+          m06: 0,
+          m07: 0,
+          m08: 0,
+          m09: 0,
+          m10: 0,
+          m11: 0,
+          m12: 0
+        }
       ]
     }
+  },
+  components: {
+    ContentBox,
+    Milestone,
+    Operation,
+    ProgressTable
+  },
+  methods: {
+    spanMethod() {
+      // 需要拿到项目起始行，和任务长度
+      const projectSpan = [
+        {
+          start: 0,
+          len: 2
+        },
+        {
+          start: 2,
+          len: 3
+        }
+      ]
+      return function({ row, column, rowIndex, columnIndex }) {
+        if (columnIndex === 0) {
+          // 合并项目行
+          const rowObject = R.find(R.propEq('start', rowIndex))(projectSpan)
+          if (rowObject) {
+            return {
+              rowspan: rowObject.len,
+              colspan: 1
+            }
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0
+            }
+          }
+        } else if (columnIndex > 1) {
+          if (columnIndex % 2 === 0) {
+            return {
+              rowspan: 1,
+              colspan: 2
+            }
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0
+            }
+          }
+          // 合并任务列
+        }
+      }
+    }
+  },
+  mounted() {
+    Highcharts.chart('chart-pie', this.optionsPie)
+    Highcharts.chart('chart-column', this.optionsColumn)
   }
-
+}
 </script>
 <style lang="scss" scoped>
-  .el-row {
-    align-items: stretch;
-  }
+.el-row {
+  align-items: stretch;
+}
 
-  .project-info {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 0 auto;
-    line-height: 2;
+.project-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
+  line-height: 2;
+  font-size: 16px;
+  .info-item:nth-child(odd) {
+    width: 40%;
+  }
+  .info-item:nth-child(even) {
+    width: 60%;
+  }
+}
+
+.project-brief {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed #979797;
+}
+
+.article {
+  line-height: 1.5;
+  .title {
     font-size: 16px;
-    .info-item:nth-child(odd) {
-      width: 40%;
-    }
-    .info-item:nth-child(even) {
-      width: 60%;
-    }
+    padding-bottom: 10px;
+    color: #333;
   }
+}
 
-  .project-brief {
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px dashed #979797;
+.chart-con {
+  display: flex;
+  > div {
+    width: 50%;
+    flex: 1 1 auto;
   }
-
-  .article {
-    line-height: 1.5;
-    .title {
-      font-size: 16px;
-      padding-bottom: 10px;
-      color: #333;
-    }
-  }
-
-  .chart-con {
-    display: flex;
-    >div {
-      width: 50%;
-      flex: 1 1 auto;
-    }
-  }
-
+}
 </style>
