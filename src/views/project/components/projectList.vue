@@ -1,6 +1,6 @@
 <template>
   <div style="padding-top: 2px;">
-    <el-row :gutter="20" v-for="(item,index) in projects" class="project-list" :class="[item.isstate + '-bg', {'icon-star-full' : item.isfull}]">
+    <el-row :gutter="20" v-for="(item,index) in projects" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]" :key="index">
       <el-col :span="10">
         <div class="text-overflow">{{ item.title }}</div>
       </el-col>
@@ -51,7 +51,7 @@ export default {
     border-radius: 6px;
     background-color: #f6f6f6;
     box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .2);
-    &.icon-star-full{
+    &.icon-wujiaoxingkong{
       &:before{
         position: absolute;
         color: #FFD004
@@ -74,7 +74,7 @@ export default {
           }
         }
       }
-      &.icon-star-full{
+      &.icon-wujiaoxingkong{
         &:before{
           left: -18px;
         }
@@ -107,7 +107,7 @@ export default {
           }
         }
       }
-      &.icon-star-full{
+      &.icon-wujiaoxingkong{
         &:before{
           right: -18px;
         }

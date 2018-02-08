@@ -2,20 +2,20 @@
   <el-col :span="24" class="clearfix">
     <ul class="project-list-status">
       <li>
-        <i class="icon-star-full"></i>
-        <solt>重点项目</solt>
+        <i class="icon-wujiaoxingkong"></i>
+        重点项目
       </li>
       <li>
-        <i class="icon-star-full  icon-danger"></i>
-        <solt>有风险</solt>
+        <i class="icon-fangkuai icon-danger"></i>
+        有风险
       </li>
       <li>
-        <i class="icon-star-full icon-unfinish"></i>
-        <solt>待完成</solt>
+        <i class="icon-fangkuai icon-unfinish"></i>
+        待完成
       </li>
       <li>
-        <i class="icon-star-full icon-finish"></i>
-        <solt>已完成</solt>
+        <i class="icon-fangkuai icon-finish"></i>
+        已完成
       </li>
     </ul>
   </el-col>
@@ -38,7 +38,7 @@
       color: #666;
       font-size: $font-base;
       margin-left: 10px;
-      .icon-star-full{
+      .icon-wujiaoxingkong{
         color: #FFD004;
       }
       .icon-unfinish{
