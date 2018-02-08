@@ -18,6 +18,7 @@
   "projects": {
     "technology": [
       {
+        "id": "01",
         "title": "423434353453234",
         "name": "cherry",
         "date": "1213213",
@@ -25,6 +26,7 @@
         "isstate": "finish"
       },
       {
+        "id": "02",
         "title": "4234234",
         "name": "cherry2",
         "date": "1213213",
@@ -32,6 +34,7 @@
         "isstate": "unfinish"
       },
       {
+        "id": "03",
         "title": "4234234",
         "name": "cherry2",
         "date": "1213213",
@@ -41,6 +44,7 @@
     ],
     "service": [
       {
+        "id": "04",
         "title": "项目名称项目名称",
         "name": "cherry",
         "date": "1213213",
@@ -48,6 +52,7 @@
         "isstate": "finish"
       },
       {
+        "id": "05",
         "title": "项目名称项目名称",
         "name": "cherry2",
         "date": "1213213",
@@ -55,6 +60,7 @@
         "isstate": "unfinish"
       },
       {
+        "id": "05",
         "title": "项目名称项目名称",
         "name": "cherry2",
         "date": "1213213",

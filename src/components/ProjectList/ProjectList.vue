@@ -1,16 +1,18 @@
 <template>
   <div style="padding-top: 2px;">
-    <el-row :gutter="20" v-for="(item,index) in projects" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]" :key="index">
-      <el-col :span="10">
-        <div class="text-overflow">{{ item.title }}</div>
-      </el-col>
-      <el-col :span="4" class="text-center text-overflow">
-        {{ item.name }}
-      </el-col>
-      <el-col :span="10" class="text-right">
-        {{ item.date }}
-      </el-col>
-    </el-row>
+    <router-link :to="'/project/'+ item.id " v-for="(item,index) in projects">
+      <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]" :key="item.id">
+        <el-col :span="10">
+          <div class="text-overflow">{{ item.title }}</div>
+        </el-col>
+        <el-col :span="4" class="text-center text-overflow">
+          {{ item.name }}
+        </el-col>
+        <el-col :span="10" class="text-right">
+          {{ item.date }}
+        </el-col>
+      </el-row>
+    </router-link>
   </div>
 </template>
 
@@ -67,7 +69,7 @@ export default {
         &:last-child{
           position: relative;
           &:after{
-              content:url(../../../assets/images/bg-icon.jpg);
+              content:url(../../assets/images/bg-icon.jpg);
               position: absolute;
               right: -29px;
               top: -10px;
@@ -99,7 +101,7 @@ export default {
         &:first-child{
           position: relative;
           &:before{
-              content:url(../../../assets/images/bg-icon.jpg);
+              content:url(../../assets/images/bg-icon.jpg);
               position: absolute;
               left: -30px;
               top: -10px;
