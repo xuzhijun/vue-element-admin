@@ -98,9 +98,10 @@ export default {
       const parameter = this.queryCondition
       getProjectList(parameter).then(response => {
         this.projects = response.data
-        throw Error('message')
+        // throw Error('message')
       }).catch(err => {
-        console.log(err.message)
+        console.log(err)
+        // console.log(err.message)
       })
     },
     getSearch() {
