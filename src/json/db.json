@@ -1,6 +1,7 @@
 {
   "login": {
-    "token": "111111"
+    "username": "admin",
+    "password": "123456"
   },
   "logout": {
     "message": "success"

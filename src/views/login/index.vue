@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
+    <el-form class="login-form" autoComplete="on" :model="loginForm" ref="loginForm" label-position="left">
       <div class="title-container">
         <h3 class="title">{{$t('login.title')}}</h3>
         <!-- <lang-select class="set-language"></lang-select> -->
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
+// import { isvalidUsername } from '@/utils/validate'
 // import LangSelect from '@/components/LangSelect'
 // import SocialSign from './socialsignin'
 
@@ -75,10 +75,10 @@ export default {
         username: '',
         password: ''
       },
-      loginRules: {
-        username: [{ required: true}],
-        password: [{ required: true}]
-      },
+      // loginRules: {
+      //   username: [{ required: true}],
+      //   password: [{ required: true}]
+      // },
       passwordType: 'password',
       loading: false,
       showDialog: false
