@@ -289,86 +289,46 @@ export default {
           id: '1',
           project: '项目一',
           task: '任务一',
-          m01: 1,
-          m02: 1,
-          m03: 1,
-          m04: 0,
-          m05: 0,
-          m06: 0,
-          m07: 0,
-          m08: 0,
-          m09: 0,
-          m10: 0,
-          m11: 0,
-          m12: 0
+          start: 1,
+          end: 5,
+          percent: '50%',
+          color: 'red'
         },
         {
           id: '2',
           project: '项目一',
           task: '任务二',
-          m01: 0,
-          m02: 0,
-          m03: 0,
-          m04: 1,
-          m05: 1,
-          m06: 1,
-          m07: 0,
-          m08: 0,
-          m09: 0,
-          m10: 0,
-          m11: 0,
-          m12: 0
+          start: 2,
+          end: 3,
+          percent: '50%',
+          color: 'green'
         },
         {
           id: '3',
           project: '项目二',
           task: '任务一',
-          m01: 0,
-          m02: 0,
-          m03: 0,
-          m04: 0,
-          m05: 1,
-          m06: 1,
-          m07: 1,
-          m08: 1,
-          m09: 0,
-          m10: 0,
-          m11: 0,
-          m12: 0
+          start: 3,
+          end: 6,
+          percent: '50%',
+          color: 'pink'
         },
         {
           id: '4',
           project: '项目二',
           task: '任务二',
-          m01: 1,
-          m02: 1,
-          m03: 1,
-          m04: 1,
-          m05: 1,
-          m06: 0,
-          m07: 0,
-          m08: 0,
-          m09: 0,
-          m10: 0,
-          m11: 0,
-          m12: 0
+          start: 2,
+          end: 7,
+          percent: '50%',
+          color: 'tiffany'
         },
         {
           id: '5',
           project: '项目二',
           task: '任务三',
-          m01: 0,
-          m02: 1,
-          m03: 1,
-          m04: 1,
-          m05: 1,
-          m06: 0,
-          m07: 0,
-          m08: 0,
-          m09: 0,
-          m10: 0,
-          m11: 0,
-          m12: 0
+          start: 1,
+          end: 5,
+          percent: '50%',
+          color: 'yellow'
         }
       ]
     }
@@ -408,18 +368,28 @@ export default {
             }
           }
         } else if (columnIndex > 1) {
-          if (columnIndex % 2 === 0) {
-            return {
-              rowspan: 1,
-              colspan: 2
+          // 合并任务列
+          const _start = row.start + 1
+          const _end = row.end + 1
+          const _len = row.end - row.start + 1
+          if (columnIndex >= _start && columnIndex <= _end) {
+            if (columnIndex === _start) {
+              return {
+                rowspan: 1,
+                colspan: _len
+              }
+            } else {
+              return {
+                rowspan: 0,
+                colspan: 0
+              }
             }
           } else {
             return {
-              rowspan: 0,
-              colspan: 0
+              rowspan: 1,
+              colspan: 1
             }
           }
-          // 合并任务列
         }
       }
     }
