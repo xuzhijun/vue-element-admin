@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>项目列表<span>projects list</span></h1>
-    <content-box class='right-min-width'>
+    <el-col :span="24" class="right-min-width">
       <el-row class="project-header">
         <template>
           <div style="margin-top: 20px" class="project-list-header">
@@ -52,7 +52,7 @@
           <project-list :projects="projects.service" class="right-list"></project-list>
         </el-col>
       </el-row>
-    </content-box>
+    </el-col>
   </div>
 </template>
 <script>
@@ -162,6 +162,10 @@ export default {
   }
   .right-min-width{
     min-width: 680px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 2px 4px 0;
+    background-color: #fff;
+    max-width: 100%;
+    padding: 20px;
   }
   .project-header {
     background-color: #f9f8f8;
@@ -177,6 +181,7 @@ export default {
     background: #fff url(../../assets/images/project-list-bg.jpg) repeat-y center top;
     min-height: 200px;
     padding-top: 40px;
+    padding-bottom: 40px;
     &:before{
       content:"";
       height: 120px;
