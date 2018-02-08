@@ -78,9 +78,6 @@ export default {
   },
   watch: {
     queryCondition() {
-      // computed
-    },
-    query: function() {
       this.getData()
     }
   },
@@ -101,8 +98,9 @@ export default {
       const parameter = this.queryCondition
       getProjectList(parameter).then(response => {
         this.projects = response.data
+        throw Error('message')
       }).catch(err => {
-        console.log(err)
+        console.log(err.message)
       })
     },
     getSearch() {
@@ -129,14 +127,13 @@ export default {
   },
   computed: {
     queryCondition: function() {
-      this.query = {
+      return {
         time: this.time,
         stress: this.stress,
         finishState: this.finishState,
         type: this.type,
         search: this.search
       }
-      return this.query
     }
   }
 }

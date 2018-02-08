@@ -1,14 +1,14 @@
 <template>
   <el-col :span="span">
     <div class="content-box">
-      <header v-if="hasTitle" class="box-header">
+      <header v-if="hasTitle" class="box-header" :style="headerStyle">
         <i v-if="hasIcon" class="el-icon" :class="'el-icon-'+icon"></i>
         <div class="title">{{title}}<span v-if="hasSubTitle" class="sub-title">{{subTitle}}</span></div>
-        <div class="tools-box">
-          <i v-if="isEdit" class="el-icon-edit"></i>
+        <div v-if="hasTools" class="tools-box">
+          <i v-if="tools.edit" class="el-icon-edit"></i>
         </div>
       </header>
-      <div class="box-content">
+      <div class="box-content" :style="contentStyle">
         <slot></slot>
       </div>
     </div>
@@ -17,12 +17,24 @@
 <script>
 export default {
   props: {
+    headerStyle: {
+      type: Object,
+      default: null
+    },
+    contentStyle: {
+      type: Object,
+      default: null
+    },
     span: {
       type: Number,
       default: 24
     },
     title: {
       type: String
+    },
+    tools: {
+      type: Object,
+      default: null
     },
     subTitle: {
       type: String
@@ -45,6 +57,9 @@ export default {
     },
     hasIcon() {
       return this.icon && this.icon !== ''
+    },
+    hasTools() {
+      return this.tools
     }
   }
 }
@@ -53,6 +68,8 @@ export default {
 .content-box {
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.19) 0 2px 4px 0;
+  background-color: #fff;
+  max-width: 100%;
   .box-header {
     display: flex;
     align-items: center;

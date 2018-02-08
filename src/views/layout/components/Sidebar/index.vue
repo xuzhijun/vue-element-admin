@@ -16,6 +16,11 @@ export default {
   components: { SidebarItem, ScrollBar, 'user-card': UserItem },
   computed: {
     ...mapGetters(['sidebar_routers', 'sidebar'])
+  },
+  mounted() {
+    this.$nextTick(function() {
+      console.log(this.sidebar_routers)
+    })
   }
 }
 </script>
