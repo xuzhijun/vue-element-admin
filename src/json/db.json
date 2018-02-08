@@ -1,8 +1,6 @@
 {
   "login": {
-    "username": "admin",
-    "password": "123456"
-
+    "token": "111111"
   },
   "logout": {
     "message": "success"
@@ -18,7 +16,8 @@
     "department": "发展创新部"
   },
   "projects": {
-    "technology": [{
+    "technology": [
+      {
         "title": "423434353453234",
         "name": "cherry",
         "date": "1213213",
@@ -40,7 +39,8 @@
         "isstate": "danger"
       }
     ],
-    "service": [{
+    "service": [
+      {
         "title": "项目名称项目名称",
         "name": "cherry",
         "date": "1213213",

@@ -1,3 +1,4 @@
+import { sidebarRouterMap, topbarRouterMap } from '@/router'
 const getters = {
   sidebar: state => state.app.sidebar,
   language: state => state.app.language,
@@ -12,8 +13,10 @@ const getters = {
   roles: state => state.user.roles,
   setting: state => state.user.setting,
   permission_routers: state => state.permission.routers,
-  sidebar_routers: state => state.permission.sidebarRouters,
-  topbar_routers: state => state.permission.topbarRouters,
+  sidebar_routers: state => sidebarRouterMap,
+  topbar_routers: state => topbarRouterMap,
+  // sidebar_routers: state => state.permission.sidebarRouters,
+  // topbar_routers: state => state.permission.topbarRouters,
   addRouters: state => state.permission.addRouters,
   errorLogs: state => state.errorLog.logs
 }
