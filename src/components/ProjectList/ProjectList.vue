@@ -1,7 +1,7 @@
 <template>
   <div style="padding-top: 2px;">
-    <router-link :to="'/project/'+ item.id " v-for="(item,index) in projects">
-      <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]" :key="item.id">
+    <router-link :to="'/project/'+ item.id " v-for="(item,index) in projects" :key="item.id">
+      <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]">
         <el-col :span="10">
           <div class="text-overflow">{{ item.title }}</div>
         </el-col>
