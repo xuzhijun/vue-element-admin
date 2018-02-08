@@ -73,3 +73,39 @@
      }
    }
  }
+ // project header
+ .project-list-header {
+    .el-radio-group{
+      .el-radio-button{
+        margin-right: 20px;
+        margin-bottom: 20px;
+        &.el-radio-button--mini {
+          .el-radio-button__inner{
+            padding: 3px 20px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #999;
+            box-shadow: none;
+          }
+          &.is-active{
+            .el-radio-button__inner{
+              border-color: #4A90E2;
+              background-color: transparent;
+              color: #4A90E2;
+            }
+          }
+        }
+      }
+    }
+    .el-input--medium {
+      .el-input__icon {
+        line-height: 23px;
+        color: #8A969C;
+      }
+      .el-input__inner {
+        height: 23px;
+        color: #999;
+      }
+    }
+ }
