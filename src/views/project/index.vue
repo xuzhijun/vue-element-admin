@@ -1,116 +1,162 @@
 <template>
-  <el-row>
-    <content-box>
+  <div>
+    <h1>项目列表<span>projects list</span></h1>
+    <content-box class='right-min-width'>
       <el-row class="project-header">
-        <head-test :items="items">
-          <span slot='tagname'>创建时间：</span>
-          <span slot="item" slot-scope="props" >
-            {{ props.text }}
-          </span>
-        </head-test>
-        <head-test :items="items2">
-          <span slot='tagname'>重点项目：</span>
-          <span slot="item" slot-scope="props" >
-            {{ props.text }}
-          </span>
-        </head-test>
-        <head-test :items="items3">
-          <span slot='tagname'>项目进度：</span>
-          <span slot="item" slot-scope="props" >
-            {{ props.text }}
-          </span>
-        </head-test>
-        <head-test :items="items4">
-          <span slot='tagname'>项目类型：</span>
-          <span slot="item" slot-scope="props" >
-            {{ props.text }}
-          </span>
-        </head-test>
+        <template>
+          <div style="margin-top: 20px" class="project-list-header">
+            <div>
+              <span class="classification-name">时 间:</span>
+              <radio-group-box :texts="['全部', '当前项目', '2018', '2017', '2016']" :isNow="'time:'+time" v-on:getClick="getStyle"></radio-group-box>
+            </div>
+            <div>
+              <span class="classification-name">重点项目:</span>
+              <radio-group-box :texts="['全部', '是', '否']" :isNow="'stress:'+stress" v-on:getClick="getStyle"></radio-group-box>
+            </div>
+            <div>
+              <span class="classification-name">完成情况:</span>
+              <radio-group-box :texts="['全部', '已完成', '未完成']" :isNow="'finishState:'+finishState" v-on:getClick="getStyle"></radio-group-box>
+            </div>
+            <div>
+              <span class="classification-name">业务类型:</span>
+              <radio-group-box :texts="['全部', '技术', '业务']" :isNow="'type:'+type" v-on:getClick="getStyle"></radio-group-box>
+            </div>
+            <el-row class='search-box'>
+              <span class="classification-name" style="color:#1E252B">项目名称:</span>
+              <el-col :span="12">
+                <el-input placeholder="请输入内容" v-model="inputSearch">
+                  <i slot="suffix" class="el-input__icon el-icon-search" @click="getSearch()"></i>
+                </el-input>
+              </el-col>
+            </el-row>
+          </div>
+        </template>
       </el-row>
       <el-row class="project-list-content">
-        <el-co1 :span="24" class="clearfix">
-          <ul class="project-list-status">
-            <li>重点项目</li>
-            <li>有风险</li>
-            <li>待完成</li>
-            <li>已完成</li>
-          </ul>
-        </el-co1>
+        <explain></explain>
         <div class="list-mid-title">项目历史列表</div>
         <el-col :span="12">
-          <h1 class="title"><span class="title-bg bg-blue"><span class="text-span">技术</span></span></h1>
-          <div style="padding-top: 2px;">
-            <el-row :gutter="20" class="project-list icon-star-full unfinish-bg">
-              <el-col :span="12" class="text-overflow active-unfinished">
-                项目名称项目名称项目名称项目名称项目名称项目名称
-              </el-col>
-              <el-col :span="4" class="text-center">
-                Cherry
-              </el-col>
-              <el-col :span="8" class="text-right">
-                2018-12-12
-              </el-col>
-            </el-row>
-            <el-row :gutter="20" class="project-list icon-star-full finish-bg">
-              <el-col :span="12" class="text-overflow active-unfinished">
-                项目名称项目名称项目名称项目名称项目名称项目名称
-              </el-col>
-              <el-col :span="4" class="text-center">
-                Cherry
-              </el-col>
-              <el-col :span="8" class="text-right">
-                2018-12-12
-              </el-col>
-            </el-row>
-          </div>
+          <h1 class="title">
+            <span class="title-bg bg-blue">
+              <span class="text-span">技术</span>
+            </span>
+          </h1>
+          <project-list :projects="projects.technology" class="left-list"></project-list>
         </el-col>
         <el-col :span="12">
-          <div class="grid-content bg-purple-light">
-            <h1 class="title"><span class="title-bg bg-orange"><span class="text-span">业务</span></span></h1>
-          </div>
+          <h1 class="title">
+            <span class="title-bg bg-orange">
+              <span class="text-span">业务</span>
+            </span>
+          </h1>
+          <project-list :projects="projects.service" class="right-list"></project-list>
         </el-col>
       </el-row>
     </content-box>
-  </el-row>
+  </div>
 </template>
 <script>
 import ContentBox from '@/components/ContentBox'
-import HeadTest from './components/ProjectClass'
+import ProjectList from './components/projectList'
+import Explain from './components/Explain'
+import RadioGroupBox from './components/RadioGroupBox'
+import { getProjectList } from '@/api/project'
+
 export default {
   name: 'project',
   data() {
     return {
-      items: [
-        { id: '001', text: '全部' },
-        { id: '002', text: '当前项目' },
-        { id: '003', text: '2018' },
-        { id: '004', text: '2017' },
-        { id: '005', text: '2016' }
-      ],
-      items2: [
-        { id: '001', text: '全部' },
-        { id: '002', text: '已完成' },
-        { id: '003', text: '未完成' }
-      ],
-      items3: [
-        { id: '001', text: '全部' },
-        { id: '002', text: '已完成' },
-        { id: '003', text: '未完成' }
-      ],
-      items4: [
-        { id: '001', text: '全部' },
-        { id: '002', text: '已完成' },
-        { id: '003', text: '未完成' }
-      ]
+      time: '当前项目',
+      stress: '全部',
+      finishState: '全部',
+      type: '全部',
+      search: '',
+      inputSearch: '',
+      projects: {},
+      query: {}
+    }
+  },
+  watch: {
+    queryCondition() {
+      this.getData()
     }
   },
   components: {
     ContentBox,
-    HeadTest
+    ProjectList,
+    Explain,
+    RadioGroupBox
+  },
+  mounted: function() {
+    this.$nextTick(function() {
+      this.getData()
+    })
+  },
+  methods: {
+    getData() {
+      // parameter的格式 { time: 'time', stress: 'stress', finishState: 'finishState', type: 'type', search: 'search'}
+      const parameter = this.queryCondition
+      getProjectList(parameter).then(response => {
+        this.projects = response.data
+        throw Error('message')
+      }).catch(err => {
+        console.log(err.message)
+      })
+    },
+    getSearch() {
+      this.search = this.inputSearch
+      this.inputSearch = ''
+    },
+    // child data
+    getStyle(data) {
+      const style = data.split(':')[0]
+      const value = data.split(':')[1]
+      if (style === 'time') {
+        this.time = value
+      }
+      if (style === 'stress') {
+        this.stress = value
+      }
+      if (style === 'finishState') {
+        this.finishState = value
+      }
+      if (style === 'type') {
+        this.type = value
+      }
+    }
+  },
+  computed: {
+    queryCondition: function() {
+      return {
+        time: this.time,
+        stress: this.stress,
+        finishState: this.finishState,
+        type: this.type,
+        search: this.search
+      }
+    }
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/styles/object-list.scss';
+  .project-list-header{
+    .classification-name{
+      float: left;
+      padding-right: 20px;
+      color: #666;
+      font-size: 14px;
+      line-height: 22px;
+      width: 90px;
+      text-align: right;
+      // text-align-last: justify;
+    }
+    .search-box{
+      border-top: 1px dotted #ECECEC;
+      border-bottom: 1px solid #ECECEC;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
 </style>

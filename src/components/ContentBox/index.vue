@@ -65,12 +65,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.el-col {
-  display: flex;
-}
 .content-box {
-  flex: 1 1 auto;
-  align-items: stretch;
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.19) 0 2px 4px 0;
   background-color: #fff;
@@ -80,6 +75,7 @@ export default {
     align-items: center;
     padding: 11px 20px 9px;
     border-bottom: 1px solid #f2f5f8;
+    background-color: #fff;
     font-size: 18px;
     line-height: 1.5;
     color: #2f363b;
@@ -97,8 +93,7 @@ export default {
   }
   .box-content {
     padding: 20px;
-    font-size: 14px;
-    color: #666;
+    background-color: #fff;
   }
 }
 </style>
