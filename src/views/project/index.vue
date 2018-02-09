@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <h1>项目列表<span>projects list</span></h1>
+    <h1 class="app-title">项目列表<span>projects list</span></h1>
     <div class="projects-list-min-width">
       <div class="projects-list-header">
         <div class="inline">
@@ -217,7 +217,7 @@ export default {
             display: block;
             width: 102px;
             height: 80px;
-            webkit-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
             background-color: #2692FF;
             transform: rotate(156deg)skew(44deg);
