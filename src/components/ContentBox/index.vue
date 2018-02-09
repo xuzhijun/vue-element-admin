@@ -1,5 +1,4 @@
 <template>
-  <el-col :span="span">
     <div class="content-box">
       <header v-if="hasTitle" class="box-header" :style="headerStyle">
         <i v-if="hasIcon" class="el-icon" :class="'el-icon-'+icon"></i>
@@ -14,7 +13,6 @@
         <slot></slot>
       </div>
     </div>
-  </el-col>
 </template>
 <script>
 export default {
@@ -66,10 +64,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.el-col {
-  display: flex;
-}
+<style lang="scss" scoped>
 .content-box {
   flex: 1 1 auto;
   align-items: stretch;

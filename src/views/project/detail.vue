@@ -2,81 +2,100 @@
   <div class="app-container project-container">
     <h1>{{$route.params.id}}</h1>
     <el-row type="flex" :gutter="15">
-      <content-box :span="14" title="项目经理" subTitle="我是子标题" :tools="{'edit': true}">
-        <section class="project-info">
-          <div class="info-item">
-            <span>项目经理：</span>张XX</div>
-          <div class="info-item">
-            <span>创建于：</span>xxxx年xx月</div>
-          <div class="info-item">
-            <span>项目类型：</span>研发项目</div>
-          <div class="info-item">
-            <span>可见范围：</span>所有人可见</div>
-          <div class="info-item">
-            <span>上级项目：</span>研发项目</div>
-          <div class="info-item">
-            <span>所属项目集：</span>研发项目</div>
-        </section>
-        <section class="project-brief article">
-          <div class="title">项目背景：</div>
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
-        </section>
-      </content-box>
-      <content-box :span="10" title="项目成员">
-        <div class="chart-con">
-          <div id="chart-pie"></div>
-          <div id="chart-column"></div>
-        </div>
-        <el-table :show-header="false" :data="tableData" style="width: 100%">
-          <el-table-column prop="name" label="姓名">
-          </el-table-column>
-          <el-table-column prop="job" label="职位">
-          </el-table-column>
-          <el-table-column prop="dep" label="部门">
-          </el-table-column>
-        </el-table>
-      </content-box>
+      <el-col :span="14">
+        <content-box title="项目经理" subTitle="我是子标题" :tools="{'edit': true}">
+          <section class="project-info">
+            <div class="info-item">
+              <span>项目经理：</span>张XX</div>
+            <div class="info-item">
+              <span>创建于：</span>xxxx年xx月</div>
+            <div class="info-item">
+              <span>项目类型：</span>研发项目</div>
+            <div class="info-item">
+              <span>可见范围：</span>所有人可见</div>
+            <div class="info-item">
+              <span>上级项目：</span>研发项目</div>
+            <div class="info-item">
+              <span>所属项目集：</span>研发项目</div>
+          </section>
+          <section class="project-brief article">
+            <div class="title">项目背景：</div>
+            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
+          </section>
+        </content-box>
+      </el-col>
+      <el-col :span="10">
+        <content-box title="项目成员">
+          <div class="chart-con">
+            <div id="chart-pie"></div>
+            <div id="chart-column"></div>
+          </div>
+          <el-table :show-header="false" :data="memberData" style="width: 100%">
+            <el-table-column prop="name" label="姓名">
+            </el-table-column>
+            <el-table-column prop="job" label="职位">
+            </el-table-column>
+            <el-table-column prop="dep" label="部门">
+            </el-table-column>
+          </el-table>
+        </content-box>
+      </el-col>
+
     </el-row>
     <el-row type="flex">
-      <content-box title="项目进度">
-        <progress-table :data="progressData" :spanMethod="spanMethod()"></progress-table>
-      </content-box>
+      <el-col>
+        <content-box title="项目进度">
+          <progress-table :data="progressData" :spanMethod="spanMethod()"></progress-table>
+        </content-box>
+      </el-col>
     </el-row>
     <el-row type="flex" :gutter="15">
-      <content-box title="工作计划">
-        <el-row type="flex" :gutter="20">
-          <content-box title="本周工作" :headerStyle="{'background-color':'#f3f3f3'}">
-            <div class="article">
-              <div class="title">标题</div>
-              <div class="content">内容</div>
-            </div>
-          </content-box>
-          <content-box title="下周计划" :headerStyle="{'background-color':'#f3f3f3'}">
-            <div class="article">
-              <div class="title">标题</div>
-              <div class="content">内容</div>
-            </div>
-          </content-box>
-        </el-row>
-      </content-box>
+      <el-col>
+        <content-box title="工作计划">
+          <el-row type="flex" :gutter="20">
+            <el-col>
+              <content-box title="本周工作" :headerStyle="{'background-color':'#f3f3f3'}">
+                <div class="article">
+                  <div class="title">标题</div>
+                  <div class="content">内容</div>
+                </div>
+              </content-box>
+            </el-col>
+            <el-col>
+              <content-box title="下周计划" :headerStyle="{'background-color':'#f3f3f3'}">
+                <div class="article">
+                  <div class="title">标题</div>
+                  <div class="content">内容</div>
+                </div>
+              </content-box>
+            </el-col>
+          </el-row>
+        </content-box>
+      </el-col>
     </el-row>
     <el-row type="flex">
-      <content-box title="里程碑">
-        <milestone :stones="stones"></milestone>
-      </content-box>
+      <el-col>
+        <content-box title="里程碑">
+          <milestone :stones="stones"></milestone>
+        </content-box>
+      </el-col>
     </el-row>
     <el-row type="flex">
-      <content-box title="问题与风险">
-        <section class="article">
-          <div class="title">项目背景：</div>
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
-        </section>
-      </content-box>
+      <el-col>
+        <content-box title="问题与风险">
+          <section class="article">
+            <div class="title">项目背景：</div>
+            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.</div>
+          </section>
+        </content-box>
+      </el-col>
     </el-row>
     <el-row type="flex">
-      <content-box>
-        <operation :list="operations"></operation>
-      </content-box>
+      <el-col>
+        <content-box>
+          <operation :list="operations"></operation>
+        </content-box>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -262,7 +281,7 @@ export default {
           date: '25小时前'
         }
       ],
-      tableData: [
+      memberData: [
         {
           name: '王小虎',
           job: '项目经理',
@@ -404,7 +423,9 @@ export default {
 .el-row {
   align-items: stretch;
 }
-
+.el-col {
+  display: flex;
+}
 .project-info {
   display: flex;
   flex-wrap: wrap;
