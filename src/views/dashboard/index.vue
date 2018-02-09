@@ -1,16 +1,14 @@
 <template>
   <div class="dashboard-container">
-    <div class="mydesk-title">
-      <span class="title-ch">快捷入口123</span>
-      <span class="title-en">Shortcut entrance</span>
-    </div>
+    <h1 class="app-title">快捷入口
+      <span>Shortcut entrance</span>
+    </h1>
     <div class="shortcut-main">
 
     </div>
-    <div class="mydesk-title">
-      <span class="title-ch">我的文件</span>
-      <span class="title-en">Shortcut entrance</span>
-    </div>
+    <h1 class="app-title">我的文件
+      <span>Shortcut entrance</span>
+    </h1>
   </div>
 </template>
 
@@ -28,9 +26,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'roles'
-    ])
+    ...mapGetters(['roles'])
   },
   created() {
     if (!this.roles.includes('admin')) {
@@ -40,28 +36,10 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-.mydesk-title {
-  padding-left: 20px;
-  padding-top:24px;
-  padding-bottom: 20px;
-  .title-ch{
-    font-family:MicrosoftYaHei-Bold;
-    font-size: 16px;
-    font-weight:bolder;
-    line-height:26px;
-  }
-  .title-en{
-    font-family: MicrosoftYaHei;
-    font-size:14px;
-    line-height:26px;
-    color: #2A2A2A 100%;
-  }
-}
-.shortcut-main{
-  width:100%;
-  height:198px;
-  margin-left:20px;
+.shortcut-main {
+  width: 100%;
+  height: 198px;
+  margin-left: 20px;
   background-color: white;
-
 }
 </style>

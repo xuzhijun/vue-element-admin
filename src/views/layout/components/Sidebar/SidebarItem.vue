@@ -1,14 +1,14 @@
 <template>
   <ul class="nav">
     <template>
-        <li v-if="!item.hidden || item.children" class="nav-item" v-for="item in routes" :key="item.path">
-          <router-link v-if="!item.hidden" class="nav-link" :to="item.path" exact>
-            <i v-if="item.meta && item.meta.icon" class="icon" :class="'icon-'+item.meta.icon" />
-            <!-- <i v-if="item.meta&&item.meta.icon" :icon-class="item.meta.icon"></i> -->
-            <span v-if="item.meta && item.meta.title" class="nav-text">{{generateTitle(item.meta.title)}}</span>
-          </router-link>
-          <sidebar-item  class="nest-menu" :routes="item.children"></sidebar-item>
-        </li>
+      <li v-if="!item.hidden || item.children" class="nav-item" v-for="item in routes" :key="item.path">
+        <router-link v-if="!item.hidden" class="nav-link" :to="item.path" exact>
+          <i v-if="item.meta && item.meta.icon" class="icon" :class="'icon-'+item.meta.icon" />
+          <!-- <i v-if="item.meta&&item.meta.icon" :icon-class="item.meta.icon"></i> -->
+          <span v-if="item.meta && item.meta.title" class="nav-text">{{generateTitle(item.meta.title)}}</span>
+        </router-link>
+        <sidebar-item class="nest-menu" :routes="item.children"></sidebar-item>
+      </li>
     </template>
   </ul>
 </template>
@@ -57,22 +57,30 @@ export default {
       &.router-link-exact-active {
         color: #fff;
       }
-      .icon {
-        font-size: 18px;
-        width: 20px;
-        margin-right: 16px;
-      }
     }
+  }
+  .icon {
+    flex: 0;
+    font-size: 18px;
+    margin-right: 16px;
   }
 }
 .mini {
-  .nav-link {
-    .nav-text {
-      display: none;
+  .nav {
+    .nav-item {
+      margin-top: 10px;
     }
-  }
-  .el-icon {
-    font-size: 20px;
+    .nav-link {
+      .nav-text {
+        display: none;
+      }
+    }
+    .icon {
+      flex: 1;
+      margin: 0;
+      text-align: center;
+      font-size: 32px;
+    }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="app-container project-container">
-    <h1>{{$route.params.id}}</h1>
+    <h1 class="app-title">{{$route.params.id}}</h1>
     <el-row type="flex" :gutter="15">
       <el-col :span="14">
         <content-box title="项目经理" subTitle="我是子标题" :tools="{'edit': true}">
