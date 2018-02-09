@@ -1,12 +1,12 @@
 <template>
   <el-header class="navbar">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <el-menu mode="horizontal" background-color="#333745" text-color="#fff" active-text-color="#fff">
+    <el-menu :router="true" mode="horizontal" background-color="#333745" text-color="#fff" active-text-color="#fff">
       <!--<breadcrumb class="breadcrumb-container"></breadcrumb>-->
-      <el-menu-item index="1">
+      <el-menu-item index="/project/index">
         {{$t('navbar.management')}}
       </el-menu-item>
-      <el-menu-item index="2">
+      <!-- <el-menu-item index="2">
         {{$t('navbar.version')}}
       </el-menu-item>
       <el-menu-item index="3">
@@ -14,7 +14,7 @@
       </el-menu-item>
       <el-menu-item index="4">
         {{$t('navbar.work')}}
-      </el-menu-item>
+      </el-menu-item> -->
     </el-menu>
     <div class="right-menu">
       <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
