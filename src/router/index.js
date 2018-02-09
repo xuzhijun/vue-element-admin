@@ -53,13 +53,13 @@ export const sidebarRouterMap = [
       {
         path: '/dashboard',
         component: _import('dashboard/index'),
-        meta: { title: 'dashboard', icon: 'dashboard' }
+        meta: { title: 'dashboard', icon: 'diannao' }
       },
-      {
-        path: '/file',
-        component: _import('file/index'),
-        meta: { title: 'file', icon: 'file' }
-      },
+      // {
+      //   path: '/file',
+      //   component: _import('file/index'),
+      //   meta: { title: 'file', icon: 'wenjian' }
+      // },
       {
         path: '/project',
         component: {
@@ -71,22 +71,18 @@ export const sidebarRouterMap = [
           {
             path: '/project/index',
             component: _import('project/index'),
-            meta: { title: 'project', icon: 'project' }
+            hidden: true,
+            meta: { title: 'project', icon: 'xiangmu' }
+          },
+          {
+            path: '/project/my',
+            component: _import('project/detail'),
+            meta: { title: 'project', icon: 'xiangmu' }
           },
           {
             path: '/project/:id',
             component: _import('project/detail'),
             hidden: true
-          },
-          {
-            path: '/project/:id/member',
-            component: _import('project/detail'),
-            meta: { title: 'projectMember' }
-          },
-          {
-            path: '/project/:id/process',
-            component: _import('project/detail'),
-            meta: { title: 'projectProcess' }
           }
         ]
       }
@@ -94,26 +90,6 @@ export const sidebarRouterMap = [
   }
 ]
 export const topbarRouterMap = [
-  {
-    path: '/manager',
-    component: {
-      render: h => h('router-view')
-    },
-    redirect: '/manager/index',
-    meta: {
-      title: 'manager',
-      icon: 'manager'
-    },
-    children: [
-      {
-        path: 'index',
-        component: _import('manager/index'),
-        name: 'manager',
-        meta: { title: 'manager', icon: 'manager' },
-        hidden: true
-      }
-    ]
-  }
 ]
 
 export const asyncRouterMap = [
