@@ -130,7 +130,18 @@ code {
 
 //main-container全局样式
 .app-container {
-  padding: 20px;
+  // padding: 20px;
+  .app-title {
+    font-size: 20px;
+    color: #666;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 20px;
+    span {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  }
 }
 
 .components-container {

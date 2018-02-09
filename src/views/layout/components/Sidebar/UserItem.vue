@@ -1,13 +1,11 @@
 <template>
   <article class="user-card">
     <picture v-if="avatar" class="user-avatar">
-      <img :src="avatar"/>
+      <img :src="avatar" />
     </picture>
     <i v-else class="icon icon-gerenzhongxin"></i>
     <div class="user-info">
-      姓名：{{ name }}<br>
-      部门：{{ department }}<br>
-      {{ name }}，欢迎您的登录
+      姓名：{{ name }}<br> 部门：{{ department }}<br> {{ name }}，欢迎您的登录
     </div>
   </article>
 </template>
@@ -47,8 +45,15 @@ export default {
     line-height: 1.5;
   }
 }
-.mini .user-info {
-  display: none;
+.mini {
+  .user-card {
+    .icon {
+      font-size: 40px;
+    }
+    .user-info {
+      display: none;
+    }
+  }
 }
 .el-menu.nest-menu {
   padding-left: 20px;
