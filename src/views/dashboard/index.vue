@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="mydesk-title">
-      <span class="title-ch">快捷入口</span>
+      <span class="title-ch">快捷入口123</span>
       <span class="title-en">Shortcut entrance</span>
     </div>
     <div class="shortcut-main">
