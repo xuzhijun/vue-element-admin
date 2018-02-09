@@ -1,5 +1,5 @@
 <template>
-  <el-col :span="24" class="clearfix">
+  <div class="clearfix">
     <ul class="project-list-status">
       <li>
         <i class="icon-wujiaoxingkong"></i>
@@ -18,7 +18,7 @@
         已完成
       </li>
     </ul>
-  </el-col>
+  </div>
 </template>
 
 <script>
@@ -26,13 +26,14 @@
     name: 'Explain'
   }
 </script>
-<style rel="stylesheet/scss" lang="scss" >
+<style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/styles/variables.scss';
   .project-list-status{
     list-style-type: none;
     margin: 0;
     float: right;
     padding-bottom: 20px;
+    padding-right: 20px;
     >li{
       float: left;
       color: #666;

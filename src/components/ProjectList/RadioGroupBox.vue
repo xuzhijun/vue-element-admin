@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <el-radio-group size="mini" v-model="isDefault">
-      <el-radio-button v-for="(text, index) in texts" :label="text" :key="index"></el-radio-button>
-      }
-    </el-radio-group>
-  </div>
+  <el-radio-group size="mini" v-model="isDefault">
+    <el-radio-button v-for="(text, index) in texts" :label="text" :key="index"></el-radio-button>
+    }
+  </el-radio-group>
 </template>
 
 <script>
