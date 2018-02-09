@@ -1,8 +1,9 @@
 <template>
   <article class="user-card">
-    <picture class="user-avatar">
-      <img :src="avatar+'?imageView2/1/w/80/h/80'"/>
+    <picture v-if="avatar" class="user-avatar">
+      <img :src="avatar"/>
     </picture>
+    <i v-else class="icon icon-gerenzhongxin"></i>
     <div class="user-info">
       姓名：{{ name }}<br>
       部门：{{ department }}<br>
@@ -31,6 +32,13 @@ export default {
     height: 60px;
     overflow: hidden;
     flex: 0 1 auto;
+  }
+  .icon {
+    color: #9b9b9b;
+    font-size: 60px;
+    padding: 10px;
+    background-color: #000;
+    border-radius: 40px;
   }
   .user-info {
     margin-left: 10px;

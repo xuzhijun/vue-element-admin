@@ -28,11 +28,12 @@
       <!-- <el-tooltip effect="dark" :content="$t('navbar.theme')" placement="bottom">
         <theme-picker class="theme-switch right-menu-item"></theme-picker>
       </el-tooltip> -->
-
+      <el-input placeholder="请输入内容" suffix-icon="el-icon-search">
+      </el-input>
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
-          <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
-          <i class="el-icon-caret-bottom"></i>
+          <img v-if="avatar" class="user-avatar" :src="avatar" />
+          <i v-else class="icon icon-gerenzhongxin"></i>
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/">
@@ -40,11 +41,6 @@
               {{$t('navbar.dashboard')}}
             </el-dropdown-item>
           </router-link>
-          <a target='_blank' href="https://github.com/PanJiaChen/vue-element-admin/">
-            <el-dropdown-item>
-              {{$t('navbar.github')}}
-            </el-dropdown-item>
-          </a>
           <el-dropdown-item divided>
             <span @click="logout" style="display:block;">{{$t('navbar.logOut')}}</span>
           </el-dropdown-item>
@@ -110,6 +106,12 @@ export default {
   //   vertical-align: top;
   // }
   .right-menu {
+    display: flex;
+    align-items: center;
+    .el-input {
+      overflow: hidden;
+      border-radius: 20px;
+    }
     &:focus {
       outline: none;
     }
@@ -117,32 +119,33 @@ export default {
       display: inline-block;
       margin: 0 8px;
     }
-    .screenfull {
-      height: 20px;
-    }
-    .international {
-      vertical-align: top;
-    }
-    .theme-switch {
-      vertical-align: 15px;
-    }
+    // .screenfull {
+    //   height: 20px;
+    // }
+    // .international {
+    //   vertical-align: top;
+    // }
+    // .theme-switch {
+    //   vertical-align: 15px;
+    // }
     .avatar-container {
       height: 50px;
-      margin-right: 30px;
+      display: flex;
+      align-items: stretch;
       .avatar-wrapper {
         cursor: pointer;
-        margin-top: 5px;
-        position: relative;
+        display: flex;
+        align-items: center;
         .user-avatar {
           width: 40px;
           height: 40px;
           border-radius: 10px;
         }
-        .el-icon-caret-bottom {
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
+        .icon {
+          font-size: 20px;
+          padding: 10px;
+          background-color: #000;
+          border-radius: 20px;
         }
       }
     }
