@@ -3,21 +3,10 @@
     <h1>项目列表<span>projects list</span></h1>
     <div class="projects-list-min-width">
       <div class="projects-list-header">
-        <div class="inline">
-          <span class="classification-name">时 间:</span>
-          <radio-group-box :texts="['全部', '当前项目', '2018', '2017', '2016']" :isNow="'time:'+time" v-on:getClick="getStyle"></radio-group-box>
-        </div>
-        <div class="inline">
-          <span class="classification-name">重点项目:</span>
-          <radio-group-box :texts="['全部', '是', '否']" :isNow="'stress:'+stress" v-on:getClick="getStyle"></radio-group-box>
-        </div>
-        <div class="inline">
-          <span class="classification-name">完成情况:</span>
-          <radio-group-box :texts="['全部', '已完成', '未完成']" :isNow="'finishState:'+finishState" v-on:getClick="getStyle"></radio-group-box>
-        </div>
-        <div class="inline">
-          <span class="classification-name">业务类型:</span>
-          <radio-group-box :texts="['全部', '技术', '业务']" :isNow="'type:'+type" v-on:getClick="getStyle"></radio-group-box>
+        <div class="inline" v-for="(typeName,index) in typeList.typeNames" :key="index">
+          <span class="classification-name">{{ typeName | forName(typeName) }}:</span>
+          <radio-group-box :texts="getTypeName(typeName)" :isNow="typeName + ':' + typeName" v-on:getClick="getStyle">
+          </radio-group-box>
         </div>
         <el-row class="inline search-box">
           <span class="classification-name">项目名称:</span>
@@ -35,20 +24,10 @@
             <div class="list-mid-title">项目历史列表</div>
             <el-row class="list-bg">
               <el-col :span="12" class="flex-column">
-                <h1 class="title">
-                  <span class="title-bg bg-blue">
-                    <span class="text-span">技术</span>
-                  </span>
-                </h1>
-                <project-list :projects="projects.technology" class="left-list"></project-list>
+                <project-list projectListName="技术" :projects="projects.technology" class="left-list"></project-list>
               </el-col>
               <el-col :span="12" class="flex-column">
-                <h1 class="title">
-                  <span class="title-bg bg-orange">
-                    <span class="text-span">业务</span>
-                  </span>
-                </h1>
-                <project-list :projects="projects.service" class="right-list"></project-list>
+                <project-list projectListName="业务" :projects="projects.service" class="right-list"></project-list>
               </el-col>
             </el-row>
           </div>
@@ -75,12 +54,35 @@ export default {
       search: '',
       inputSearch: '',
       projects: {},
-      query: {}
+      query: {},
+      typeList: {
+        typeNames: ['time', 'stress', 'finishState', 'type'],
+        time: ['全部', '当前项目', '2018', '2017', '2016'],
+        stress: ['全部', '是', '否'],
+        finishState: ['全部', '已完成', '未完成'],
+        type: ['全部', '技术', '业务']
+      }
     }
   },
   watch: {
     queryCondition() {
       this.getData()
+    }
+  },
+  filters: {
+    forName: function(value) {
+      if (value === 'time') {
+        return '时 间:'
+      }
+      if (value === 'stress') {
+        return '时 间2:'
+      }
+      if (value === 'finishState') {
+        return '时 间3:'
+      }
+      if (value === 'type') {
+        return '时 间4:'
+      }
     }
   },
   components: {
@@ -123,6 +125,20 @@ export default {
       }
       if (style === 'type') {
         this.type = value
+      }
+    },
+    getTypeName: function(typeName) {
+      if (typeName === 'time') {
+        return this.typeList.time
+      }
+      if (typeName === 'stress') {
+        return this.typeList.stress
+      }
+      if (typeName === 'finishState') {
+        return this.typeList.finishState
+      }
+      if (typeName === 'type') {
+        return this.typeList.type
       }
     }
   },
@@ -190,53 +206,6 @@ export default {
       flex-direction: column;
       padding-top: 40px;
       min-height: 200px;
-      .title{
-        display: flex;
-        justify-content: center;
-        height: 62px;
-        text-align: center;
-        background-color: #F3F3F3;
-        .title-bg{
-          position: relative;
-          top: -10px;
-          display: inline-block;
-          width: 200px;
-          border-radius: 3px;
-          line-height: 62px;
-          .text-span{
-            position: relative;
-            font-size: 38px;
-            color: #fff;
-            z-index: 1;
-          }
-          &:before{
-            content:'';
-            position: absolute;
-            top: 22px;
-            left: 49px;
-            display: block;
-            width: 102px;
-            height: 80px;
-            webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-            background-color: #2692FF;
-            transform: rotate(156deg)skew(44deg);
-            z-index: 0;
-          }
-          &.bg-blue{
-            background-color: #2692FF;
-            &:before{
-              background-color: #2692FF;
-            }
-          }
-          &.bg-orange{
-            background-color: #FFAB26;
-            &:before{
-              background-color: #FFAB26;
-            }
-          }
-        }
-      }
       .list-box{
         max-width: 100%;
         padding-bottom: 60px;

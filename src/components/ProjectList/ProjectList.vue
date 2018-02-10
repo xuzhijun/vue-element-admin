@@ -1,18 +1,25 @@
 <template>
-  <div style="padding-top: 2px;">
-    <router-link :to="'/project/'+ item.id " v-for="(item,index) in projects" :key="item.id">
-      <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]">
-        <el-col :span="10">
-          <div class="text-overflow">{{ item.title }}</div>
-        </el-col>
-        <el-col :span="4" class="text-center text-overflow">
-          {{ item.name }}
-        </el-col>
-        <el-col :span="10" class="text-right">
-          {{ item.date }}
-        </el-col>
-      </el-row>
-    </router-link>
+  <div>
+    <h1 class="projects-list-title">
+      <span class="title-bg bg-orange">
+        <span class="text-span">{{ projectListName }}</span>
+      </span>
+    </h1>
+    <div style="padding-top: 2px;">
+      <router-link :to="'/project/'+ item.id " v-for="(item,index) in projects" :key="item.id">
+        <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]">
+          <el-col :span="10">
+            <div class="text-overflow">{{ item.title }}</div>
+          </el-col>
+          <el-col :span="4" class="text-center text-overflow">
+            {{ item.name }}
+          </el-col>
+          <el-col :span="10" class="text-right">
+            {{ item.date }}
+          </el-col>
+        </el-row>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -26,6 +33,9 @@ export default {
     }
   },
   props: {
+    projectListName: {
+      type: String
+    },
     projects: {
       type: Array
     },
@@ -43,6 +53,53 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/styles/variables.scss';
+  .projects-list-title{
+    display: flex;
+    justify-content: center;
+    height: 62px;
+    text-align: center;
+    background-color: #F3F3F3;
+    .title-bg{
+      position: relative;
+      top: -10px;
+      display: inline-block;
+      width: 200px;
+      border-radius: 3px;
+      line-height: 62px;
+      .text-span{
+        position: relative;
+        font-size: 38px;
+        color: #fff;
+        z-index: 1;
+      }
+      &:before{
+        content:'';
+        position: absolute;
+        top: 22px;
+        left: 49px;
+        display: block;
+        width: 102px;
+        height: 80px;
+        webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        background-color: #2692FF;
+        transform: rotate(156deg)skew(44deg);
+        z-index: 0;
+      }
+      &.bg-blue{
+        background-color: #2692FF;
+        &:before{
+          background-color: #2692FF;
+        }
+      }
+      &.bg-orange{
+        background-color: #FFAB26;
+        &:before{
+          background-color: #FFAB26;
+        }
+      }
+    }
+  }
   .project-list{
     color: #8e8f8f;
     font-size: $font-base;
