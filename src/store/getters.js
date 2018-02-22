@@ -18,6 +18,7 @@ const getters = {
   // sidebar_routers: state => state.permission.sidebarRouters,
   // topbar_routers: state => state.permission.topbarRouters,
   addRouters: state => state.permission.addRouters,
-  errorLogs: state => state.errorLog.logs
+  errorLogs: state => state.errorLog.logs,
+  getProjectList: state => state.projectList.projects
 }
 export default getters

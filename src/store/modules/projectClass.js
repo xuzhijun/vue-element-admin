@@ -1,54 +1,35 @@
-// import { loginByUsername, logout, getUserInfo } from '@/api/login'
-const project = {
+import { getProjectList } from '@/api/project'
+
+const projectList = {
   state: {
-    time: '',
-    stress: '',
-    finishState: '',
-    type: ''
+    projects: {}
   },
 
   // getters
   getters: {
-    time: state => state.time
+    projects: state => state.projects
   },
 
   // actions
   actions: {
-    getAllProducts ({ commit }) {
-      shop.getProducts(products => {
-        commit(types.RECEIVE_PRODUCTS, { products })
-      })
+    getAllProducts({ commit }, queryCondition) {
+      commit('GETDATA', queryCondition)
     }
   },
 
   mutations: {
-    SET_TIME: (state, time) => {
-      this.state.time = time
-    },
-    SET_STRESS: (state, stress) => {
-      this.state.stress = stress
-    },
-    SET_FINISHSTATE: (state, finishState) => {
-      this.state.finishState = finishState
-    },
-    SET_TYPE: (state, type) => {
-      state.type = type
+    GETDATA: (state, queryCondition) => {
+      // parameter的格式 { time: 'time', stress: 'stress', finishState: 'finishState', type: 'type', search: 'search'}
+      const parameter = queryCondition
+      getProjectList(parameter).then(response => {
+        state.projects = response.data
+        // throw Error('message')
+      }).catch(err => {
+        console.log(err)
+        // console.log(err.message)
+      })
     }
-  },
-
-    // LoginByUsername({ commit }, userInfo) {
-    //   const username = userInfo.username.trim()
-    //   return new Promise((resolve, reject) => {
-    //     loginByUsername(username, userInfo.password).then(response => {
-    //       const data = response.data
-    //       commit('SET_TOKEN', data.token)
-    //       setToken(response.data.token)
-    //       resolve()
-    //     }).catch(error => {
-    //       reject(error)
-    //     })
-    //   })
-    // }
   }
+}
 
-export default project
+export default projectList
