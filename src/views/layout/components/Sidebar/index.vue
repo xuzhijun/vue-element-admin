@@ -1,6 +1,11 @@
 <template>
   <el-aside width="auto">
-    <div class="title">项目管理工具</div>
+    <div class="title">
+      <picture>
+        <img class="logo" :src="img_Logo" alt="项目管理工具">
+        项目管理工具
+      </picture>
+    </div>
     <user-card></user-card>
     <sidebar-item :routes="sidebar_routers"></sidebar-item>
   </el-aside>
@@ -11,8 +16,14 @@ import { mapGetters } from 'vuex'
 import SidebarItem from './SidebarItem'
 import ScrollBar from '@/components/ScrollBar'
 import UserItem from './UserItem'
+import img_Logo from '@/assets/images/logo.png'
 
 export default {
+  data() {
+    return {
+      img_Logo
+    }
+  },
   components: { SidebarItem, ScrollBar, 'user-card': UserItem },
   computed: {
     ...mapGetters(['sidebar_routers', 'sidebar'])
@@ -37,6 +48,23 @@ export default {
   &.mini {
     .title, .user-card, .nav {
       width: $miniSidebarWidth;
+    }
+  }
+  .title{
+    .logo{
+      width: 30px;
+      height: 30px;
+      position: relative;
+      top: 6px;
+    }
+  }
+  &.mini {
+    .title{
+      .logo{
+        margin: 8px 10px 10px;
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 }

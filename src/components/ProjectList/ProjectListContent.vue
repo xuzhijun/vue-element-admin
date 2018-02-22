@@ -1,7 +1,7 @@
 <template>
-  <div class="projects-list-content">
+  <div class="projects-list-content" v-loading="getProjectListLoading">
     <explain class='flex-end'></explain>
-    <div class="list-box">
+    <div class="list-box" v-if="getProjectList.technology || getProjectList.service">
       <div class="list-box-min-width">
         <div class="list-mid-title">项目历史列表</div>
         <el-row class="list-bg">
@@ -13,6 +13,9 @@
           </el-col>
         </el-row>
       </div>
+    </div>
+    <div v-else class="text-center">
+      没有找到项目！
     </div>
   </div>
 </template>
@@ -28,7 +31,7 @@ export default {
     Explain
   },
   computed: {
-    ...mapGetters(['getProjectList'])
+    ...mapGetters(['getProjectList', 'getProjectListLoading'])
   }
 }
 </script>

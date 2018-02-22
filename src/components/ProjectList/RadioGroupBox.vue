@@ -1,7 +1,6 @@
 <template>
   <el-radio-group size="mini" v-model="isDefault">
     <el-radio-button v-for="(text, index) in texts" :label="text" :key="index"></el-radio-button>
-    }
   </el-radio-group>
 </template>
 
@@ -11,7 +10,8 @@
     data() {
       return {
         isDefault: '',
-        isNowType: ''
+        isNowType: '',
+        fullscreenLoading: false
       }
     },
     watch: {
@@ -29,6 +29,12 @@
         const isNowValue = this.isNow.split(':')[1]
         this.isNowType = this.isNow.split(':')[0]
         this.isDefault = isNowValue !== 'time' ? '全部' : '当前项目'
+      },
+      openFullScreen() {
+        this.fullscreenLoading = true
+        setTimeout(() => {
+          this.fullscreenLoading = false
+        }, 2000)
       }
     },
     props: {
