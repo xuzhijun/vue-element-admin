@@ -6,8 +6,8 @@
       </span>
     </h1>
     <div style="padding-top: 2px;">
-      <router-link :to="'/project/'+ item.id " v-for="(item,index) in projects" :key="item.id">
-        <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull}]">
+      <router-link :to="'/project/'+ item.id " v-for="(item,index) in projectList" :key="item.id">
+        <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull }]">
           <el-col :span="10">
             <div class="text-overflow">{{ item.title }}</div>
           </el-col>
@@ -36,7 +36,7 @@ export default {
     projectListName: {
       type: String
     },
-    projects: {
+    projectList: {
       type: Array
     },
     isfull: {

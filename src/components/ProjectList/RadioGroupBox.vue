@@ -29,7 +29,6 @@
         const isNowValue = this.isNow.split(':')[1]
         this.isNowType = this.isNow.split(':')[0]
         this.isDefault = isNowValue !== 'time' ? '全部' : '当前项目'
-        console.log(this.isNow)
       }
     },
     props: {
