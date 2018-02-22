@@ -1,18 +1,15 @@
-import { getProjectList } from '@/api/project'
+import { getAllProjectList } from '@/api/project'
 
 const projectList = {
   state: {
-    projects: {}
-  },
-
-  // getters
-  getters: {
-    projects: state => state.projects
+    projects: {},
+    loading: false
   },
 
   // actions
   actions: {
-    getAllProducts({ commit }, queryCondition) {
+    getAllProducts({ commit, state }, queryCondition) {
+      state.loading = true
       commit('GETDATA', queryCondition)
     }
   },
@@ -21,8 +18,9 @@ const projectList = {
     GETDATA: (state, queryCondition) => {
       // parameter的格式 { time: 'time', stress: 'stress', finishState: 'finishState', type: 'type', search: 'search'}
       const parameter = queryCondition
-      getProjectList(parameter).then(response => {
+      getAllProjectList(parameter).then(response => {
         state.projects = response.data
+        state.loading = false
         // throw Error('message')
       }).catch(err => {
         console.log(err)

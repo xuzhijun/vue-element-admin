@@ -64,7 +64,7 @@ export default {
   components: {
     RadioGroupBox
   },
-  mounted: function() {
+  created() {
     this.$store.dispatch('getAllProducts', this.queryCondition)
   },
   methods: {

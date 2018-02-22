@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-export function getProjectList(parameters) {
+export function getAllProjectList(parameters) {
   return request({
     url: '/api/projects',
     method: 'get',

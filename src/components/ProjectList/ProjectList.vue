@@ -5,7 +5,7 @@
         <span class="text-span">{{ projectListName }}</span>
       </span>
     </h1>
-    <div style="padding-top: 2px;">
+    <div style="padding-top: 2px;" v-if="projectList.length != 0 && projectList">
       <router-link :to="'/project/'+ item.id " v-for="(item,index) in projectList" :key="item.id">
         <el-row :gutter="20" class="project-list" :class="[item.isstate + '-bg', {'icon-wujiaoxingkong' : item.isfull }]">
           <el-col :span="10">
@@ -19,6 +19,9 @@
           </el-col>
         </el-row>
       </router-link>
+    </div>
+    <div v-else class="text-center none-box">
+      暂无
     </div>
   </div>
 </template>
@@ -181,5 +184,8 @@ export default {
         border-right-color: #2692FF;
       }
     }
+  }
+  .none-box{
+    padding: 50px 0;
   }
 </style>
